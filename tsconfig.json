@@ -1,4 +1,10 @@
 {
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
   "files": [],
   "references": [
     {
@@ -10,5 +16,7 @@
     {
       "path": "./tsconfig.vitest.json"
     }
-  ]
+  ],
+  "typescript.preferences.useAliasesForRenames": true,
+  "javascript.preferences.useAliasesForRenames": true
 }
