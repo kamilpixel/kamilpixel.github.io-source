@@ -28,6 +28,7 @@
       </span>
       <!-- Button view project -->
       <button
+        @click="openProject()"
         class="cursor-pointer rounded-md border border-purple-200 px-4 py-1 text-sm font-semibold text-purple-600 hover:border-transparent hover:bg-purple-600 hover:text-white active:bg-purple-700"
       >
         View Project
@@ -35,3 +36,12 @@
     </div>
   </div>
 </template>
+
+<script lang="ts" setup>
+import { usePortfolioStore } from '@/stores/portfolioStore'
+const portfolioStore = usePortfolioStore()
+
+const openProject = () => {
+    portfolioStore.toggleModal();
+}
+</script>
