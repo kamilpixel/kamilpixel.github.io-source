@@ -12,17 +12,15 @@
       </div>
     </div>
 
-    <h1 class="text-3xl font-bold text-slate-700">Hi, I'm Kamil</h1>
-    <p class="text-gray-600 dark:text-gray-400 mb-8">
-      I'm a frontend developer with over 10 years of experience, and I also have a background in
-      UI/UX design. I mainly work with Vue.js, Nuxt.js, and build websites that look good and work
-      well on all devices. I have a good eye for design and focus on creating clean, easy-to-use
-      interfaces. I use tools like Tailwind, Bootstrap, Vite, Pinia, Vuex, and Vitest. I also have
-      some experience with cloud tools like AWS and Azure. In the past, I've worked with React and
-      AngularJS. I enjoy writing clean code, working with teams, and helping others grow.
+    <h1 class="text-3xl font-bold text-slate-700 pb-2">Hi, I'm Kamil</h1>
+    <p class="text-lg text-gray-600 mb-8">
+      I'm a frontend developer with 10+ years of experience, specializing in Vue.js, Nuxt.js, and
+      building responsive, user-friendly websites. With a UI/UX design background, I focus on clean,
+      intuitive interfaces using tools like Tailwind, Vite, and Pinia. I've also worked with AWS,
+      Azure, React, and AngularJS, and enjoy writing clean code and collaborating with teams
     </p>
 
-    <h2 class="pb-4 font-bold">Featured works</h2>
+    <!-- <h2 class="pb-4 font-semibold text-slate-400">Featured works</h2> -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <PortfolioCards v-for="(card, cardIndex) in portfolioData" :key="cardIndex" :item="card" />
     </div>

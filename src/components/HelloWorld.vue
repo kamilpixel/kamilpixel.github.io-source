@@ -822,6 +822,10 @@
         </div>
       </div>
     </div>
+
+    <!-- text paragraph underline -->
+
+    <div class="not-prose overflow-auto rounded-lg bg-white outline outline-white/5 dark:bg-gray-950/50"><p class="mx-auto max-w-sm gap-4 p-8 text-sm/6 text-gray-900 dark:text-gray-200">I’m Derek, an astro-engineer based in Tattooine. I like to build X-Wings at <a class="font-bold underline decoration-sky-500 decoration-2 dark:text-gray-200" href="#">My Company, Inc</a>. Outside of work, I like to <a class="font-bold underline decoration-pink-500 decoration-2 dark:text-gray-200" href="#">watch pod-racing</a> and have <a class="font-bold underline decoration-indigo-500 decoration-2 dark:text-gray-200" href="#">light-saber</a> fights.</p></div>
   </div>
 </template>
 

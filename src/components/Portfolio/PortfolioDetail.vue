@@ -56,7 +56,7 @@
                           >
                             {{ portfolioStore.selectedPortfolioItem?.project_title }}
                           </p>
-                          <p class="mt-6 text-lg/8 text-gray-600">
+                          <p class="mt-6 text-lg text-gray-600">
                             {{ portfolioStore.selectedPortfolioItem?.project_description }}
                           </p>
                           <dl
@@ -92,7 +92,7 @@
               </div>
 
               <!-- Bottom close button -->
-              <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-slate-300">
                 <button
                   type="button"
                   class="cursor-pointer inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 sm:ml-3 sm:w-auto"
