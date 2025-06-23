@@ -33,10 +33,10 @@
                 <!-- Top close button -->
                 <button
                   type="button"
-                  class="cursor-pointer ml-auto flex h-12 w-12 items-center justify-center rounded-full bg-red-100"
+                  class="cursor-pointer ml-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200"
                   @click="portfolioStore.closeModal()"
                 >
-                  <XMarkIcon class="h-6 w-6 text-red-600" aria-hidden="true" />
+                  <XMarkIcon class="h-6 w-6 text-slate-600 hover:text-slate-700" aria-hidden="true" />
                 </button>
 
                 <!-- Main portfolio content -->
@@ -49,18 +49,15 @@
                       <div class="lg:pt-4 lg:pr-8">
                         <div class="lg:max-w-lg">
                           <h2 class="text-base/7 font-semibold text-indigo-600">
-                            Frontend development
+                            {{ portfolioStore.selectedPortfolioItem?.project_type }}
                           </h2>
                           <p
                             class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
                           >
-                            TN - Realtime Hospital Staff Display
+                            {{ portfolioStore.selectedPortfolioItem?.project_title }}
                           </p>
                           <p class="mt-6 text-lg/8 text-gray-600">
-                            Developed a SaaS prototype to display real-time staff duty information
-                            for hospital use. Built responsive UI supporting various screen types
-                            (4K monitors, tablets, etc.). Integrated WebSocket for live status
-                            updates across user screens
+                            {{ portfolioStore.selectedPortfolioItem?.project_description }}
                           </p>
                           <dl
                             class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none"
@@ -78,7 +75,6 @@
                                 />
                                 {{ feature.name }}
                               </dt>
-                              {{ ' ' }}
                               <dd class="inline">{{ feature.description }}</dd>
                             </div>
                           </dl>
@@ -86,9 +82,9 @@
                       </div>
                       <!-- Screenshot content -->
                       <img
-                        :src="screenshotSource"
-                        alt="Product screenshot"
-                        class="object-contain"
+                        :src="portfolioStore.selectedPortfolioItem?.project_screenshot"
+                        :alt="portfolioStore.selectedPortfolioItem?.project_title"
+                        class="object-contain rounded-lg"
                       />
                     </div>
                   </div>
@@ -99,7 +95,7 @@
               <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                 <button
                   type="button"
-                  class="cursor-pointer inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:ml-3 sm:w-auto"
+                  class="cursor-pointer inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 sm:ml-3 sm:w-auto"
                   @click="portfolioStore.closeModal()"
                 >
                   Close
@@ -113,26 +109,25 @@
   </TransitionRoot>
 </template>
 
-<script setup>
-import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
+<script lang="ts" setup>
+import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
-import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/vue/20/solid'
-
-import screenshotSource from '@/assets/portfolio/qf/screenshot.jpg'
+import { Square3Stack3DIcon, UserGroupIcon } from '@heroicons/vue/20/solid'
 
 import { usePortfolioStore } from '@/stores/portfolioStore'
+import { computed } from 'vue'
 const portfolioStore = usePortfolioStore()
 
-const features = [
+const features = computed(() => [
   {
     name: 'Tech stack',
-    description: 'Vue.js, Nuxt.js, Tailwind CSS, Vite, Pinia, Vitest, AWS, Azure.',
-    icon: CloudArrowUpIcon,
+    description: portfolioStore.selectedPortfolioItem?.project_tech_stack,
+    icon: Square3Stack3DIcon,
   },
   {
     name: 'Team',
-    description: ' 2 Frontend Developers, Fullstack Developer, Product Owner',
-    icon: LockClosedIcon,
+    description: portfolioStore.selectedPortfolioItem?.project_team,
+    icon: UserGroupIcon,
   },
-]
+])
 </script>

@@ -5,8 +5,8 @@
       <div class="absolute inset-0 w-full h-full transition-transform duration-300 transform hover:scale-105">
         <img
           class="w-full h-full object-cover"
-          src="https://picsum.photos/1080/1080"
-          alt="Work from home scene"
+          :src="item?.project_thumbnail"
+          :alt="item?.project_title"
         />
         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
       </div>  
@@ -14,10 +14,10 @@
       <!-- Content -->
       <div class="absolute bottom-0 p-4 text-white">
         <div class="flex items-center text-sm mb-1 space-x-2">
-          <span>UI/UX Design</span>
+          <span>{{ item?.project_type }}</span>
         </div>
         <h2 class="text-lg font-semibold leading-tight">
-          Libero quisquam voluptatibus nam iusto qui dolor
+          {{ item?.project_title }}
         </h2>
       </div>
     </div>
@@ -26,9 +26,17 @@
 
 <script lang="ts" setup>
 import { usePortfolioStore } from '@/stores/portfolioStore'
-const portfolioStore = usePortfolioStore()
+import type { PortfolioItem } from '@/types/portfolio';
 
+const props = defineProps<{
+  item: PortfolioItem
+}>()
+
+const portfolioStore = usePortfolioStore()
 const openProject = () => {
+  // Set the selected portfolio item
+  portfolioStore.selectedPortfolioItem = props.item
+  // Toggle the modal to open
   portfolioStore.toggleModal()
 }
 </script>

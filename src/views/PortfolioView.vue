@@ -24,13 +24,24 @@
 
     <h2 class="pb-4 font-bold">Featured works</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <PortfolioCards v-for="(card, cardIndex) in [1,2,3,4,5]" :key="cardIndex" />
+      <PortfolioCards v-for="(card, cardIndex) in portfolioData" :key="cardIndex" :item="card" />
     </div>
   </div>
   <PortfolioDetail />
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import { onMounted, ref } from 'vue'
+import { storeToRefs } from 'pinia'
+import { usePortfolioStore } from '@/stores/portfolioStore'
 import PortfolioCards from '@/components/Portfolio/PortfolioCards.vue'
 import PortfolioDetail from '@/components/Portfolio/PortfolioDetail.vue'
+
+// Fetch portfolio data on mounted
+const portfolioStore = usePortfolioStore()
+const { portfolioData } = storeToRefs(portfolioStore)
+
+onMounted(async () => {
+  await portfolioStore.fetchPortfolioData()
+})
 </script>

@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "project_title": "1 Lorem ipsum dolor sit amet",
+        "project_type": "UI/UX Design",
+        "project_tech_stack": "Figma",
+        "project_team": "3 Frontend Developers, 3 Software Developers, Designer, QA, Tech Lead, Business Analyst, Product Owner",
+        "project_role": "UX Developer",
+        "project_description": "1 I was responsible Lorem ipsum dolor sit amet",
+        "project_thumbnail": "assets/portfolio/nb_thumbnail.jpg",
+        "project_screenshot": "assets/portfolio/nb_screenshot.jpg"
+    },
+    {
+        "id": 2,
+        "project_title": "2 Lorem ipsum dolor sit amet",
+        "project_type": "Frontend Development",
+        "project_tech_stack": "Vue, Vue Router, Pinia, Tailwind CSS",
+        "project_team": "Frontend Developer, Designer",
+        "project_role": "Frontend Developer",
+        "project_description": "2 I was responsible Lorem ipsum dolor sit amet",
+        "project_thumbnail": "assets/portfolio/dof_thumbnail.jpg",
+        "project_screenshot": "assets/portfolio/dof_screenshot.jpg"
+    },
+    {
+        "id": 3,
+        "project_title": "3 Lorem ipsum dolor sit amet",
+        "project_type": "Fullstack Development",
+        "project_tech_stack": "Figma",
+        "project_team": "Tech Lead, Business Analyst, Product Owner",
+        "project_role": "UX Developer",
+        "project_description": "3 I was responsible Lorem ipsum dolor sit amet",
+        "project_thumbnail": "https://picsum.photos/1080/1080",
+        "project_screenshot": "https://picsum.photos/1080/1080"
+    },
+    {
+        "id": 4,
+        "project_title": "4 Lorem ipsum dolor sit amet",
+        "project_type": "Fullstack Development",
+        "project_tech_stack": "Figma",
+        "project_team": "Tech Lead, Business Analyst, Product Owner",
+        "project_role": "Fullstack Developer",
+        "project_description": "4 I was responsible Lorem ipsum dolor sit amet",
+        "project_thumbnail": "https://picsum.photos/1080/1080",
+        "project_screenshot": "https://picsum.photos/1080/1080"
+    }
+]
