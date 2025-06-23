@@ -4,7 +4,7 @@
       <div class="flex items-center gap-4">
         <img class="h-12 w-12 rounded-full" src="https://picsum.photos/200/300" />
         <div class="flex flex-col">
-          <strong class="font-medium text-gray-900 dark:text-gray-200">Kamil K.</strong
+          <strong class="font-medium text-gray-900 dark:text-gray-200">Kamil</strong
           ><span class="font-medium text-gray-500 dark:text-gray-400"
             >Senior Frontend Developer</span
           >

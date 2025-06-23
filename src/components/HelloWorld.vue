@@ -613,7 +613,7 @@
 
     <!--  -->
     <ul role="list" class="divide-y divide-gray-100">
-    <li class="flex justify-between gap-x-6 py-5">
+      <li class="flex justify-between gap-x-6 py-5">
         <div class="flex min-w-0 gap-x-4">
           <img
             class="size-12 flex-none rounded-full bg-gray-50"
@@ -736,16 +736,92 @@
     </ul>
 
     <!-- badges -->
-  <span class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset">Badge</span>
-  <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-red-600/10 ring-inset">Badge</span>
-  <span class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset">Badge</span>
-  <span class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset">Badge</span>
-  <span class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-700/10 ring-inset">Badge</span>
-  <span class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-700/10 ring-inset">Badge</span>
-  <span class="inline-flex items-center rounded-md bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-purple-700/10 ring-inset">Badge</span>
-  <span class="inline-flex items-center rounded-md bg-pink-50 px-2 py-1 text-xs font-medium text-pink-700 ring-1 ring-pink-700/10 ring-inset">Badge</span>
+    <span
+      class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-gray-500/10 ring-inset"
+      >Badge</span
+    >
+    <span
+      class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-red-600/10 ring-inset"
+      >Badge</span
+    >
+    <span
+      class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 ring-1 ring-yellow-600/20 ring-inset"
+      >Badge</span
+    >
+    <span
+      class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-green-600/20 ring-inset"
+      >Badge</span
+    >
+    <span
+      class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-700/10 ring-inset"
+      >Badge</span
+    >
+    <span
+      class="inline-flex items-center rounded-md bg-indigo-50 px-2 py-1 text-xs font-medium text-indigo-700 ring-1 ring-indigo-700/10 ring-inset"
+      >Badge</span
+    >
+    <span
+      class="inline-flex items-center rounded-md bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-purple-700/10 ring-inset"
+      >Badge</span
+    >
+    <span
+      class="inline-flex items-center rounded-md bg-pink-50 px-2 py-1 text-xs font-medium text-pink-700 ring-1 ring-pink-700/10 ring-inset"
+      >Badge</span
+    >
 
+    <!-- 
+    mask 
+     
+    https://tailwindcss.com/docs/mask-mode#basic-example
+    -->
 
+    <div
+      class="not-prose overflow-auto rounded-lg bg-white outline outline-white/5 dark:bg-gray-950/50 p-8"
+    >
+      <div
+        class="mx-5 grid gap-10 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400"
+      >
+        <div>
+          <div class="relative">
+            <div
+              class="relative z-10 h-[500px] bg-[url(https://picsum.photos/1920/1080)] mask-b-from-black mask-b-from-10% mask-b-to-transparent bg-cover bg-center mask-alpha"
+            ></div>
+          </div>
+          <p class="mt-3">mask-alpha</p>
+        </div>
+        <div>
+          <div class="relative h-[3.625rem]">
+            <div class="absolute top-0 left-[50%] -ml-3 flex h-12 flex-col items-center">
+              <svg
+                viewBox="0 0 32 34"
+                class="w-7 flex-none text-white drop-shadow-sm dark:stroke-white/10"
+              >
+                <use href="#gradient-color-stop"></use>
+              </svg>
+              <div class="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+            </div>
+            <div class="absolute top-0 right-px -mr-3 flex h-12 flex-col items-center">
+              <svg
+                viewBox="0 0 32 34"
+                class="w-7 flex-none text-black drop-shadow-sm dark:stroke-white/10"
+              >
+                <use href="#gradient-color-stop"></use>
+              </svg>
+              <div class="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+            </div>
+          </div>
+          <div class="relative">
+            <div
+              class="relative z-10 h-24 rounded-lg bg-[url(https://picsum.photos/200/300)] mask-r-from-white mask-r-from-50% mask-r-to-black bg-cover bg-center mask-luminance"
+            ></div>
+            <div
+              class="absolute inset-0 rounded-lg border text-black/10 dark:text-white/12.5 bg-[size:8px_8px] bg-top-left bg-[image:repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,transparent_0,transparent_50%)]"
+            ></div>
+          </div>
+          <p class="mt-3">mask-luminance</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
