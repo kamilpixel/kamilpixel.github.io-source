@@ -5,7 +5,7 @@
         <div class="text-center font-semibold tracking-tight text-pretty">
           <img
             class="mx-auto h-24 w-24 rounded-full shadow-lg shadow-slate-500/50 mb-4 ring-2 ring-slate-300 dark:ring-slate-700"
-            src="https://picsum.photos/200/300"
+            src="https://randomuser.me/api/portraits/lego/1.jpg"
           />
 
           <div class="flex flex-col">

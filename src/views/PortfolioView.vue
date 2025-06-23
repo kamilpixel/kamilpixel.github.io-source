@@ -2,7 +2,7 @@
   <div class="@container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
     <div class="justify-center text-gray-500 pb-4">
       <div class="flex items-center gap-4">
-        <img class="h-12 w-12 rounded-full" src="https://picsum.photos/200/300" />
+        <img class="h-24 w-24 rounded-full shadow-lg shadow-slate-500/50 mb-4 ring-2 ring-slate-300 dark:ring-slate-700" src="https://randomuser.me/api/portraits/lego/1.jpg" />
         <div class="flex flex-col">
           <strong class="font-medium text-gray-900 dark:text-gray-200">Kamil</strong
           ><span class="font-medium text-gray-500 dark:text-gray-400"
