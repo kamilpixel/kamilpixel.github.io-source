@@ -14,14 +14,14 @@
           </DisclosureButton>
         </div>
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="flex shrink-0 items-center">
+          <!-- <div class="flex shrink-0 items-center">
             <img
               class="h-8 w-auto"
               src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
               alt="Your Company"
             />
-          </div>
-          <div class="hidden sm:ml-6 sm:block">
+          </div> -->
+          <div class="hidden md:block">
             <div class="flex space-x-4">
               <a
                 v-for="item in navigation"
@@ -47,12 +47,12 @@
             class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
           >
             <span class="absolute -inset-1.5" />
-            <span class="sr-only">View notifications</span>
-            <BellIcon class="size-6" aria-hidden="true" />
+            <span class="sr-only">Toggle theme</span>
+            <MoonIcon class="size-6" aria-hidden="true" />
           </button>
 
           <!-- Profile dropdown -->
-          <Menu as="div" class="relative ml-3">
+          <!-- <Menu as="div" class="relative ml-3">
             <div>
               <MenuButton
                 class="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
@@ -109,7 +109,7 @@
                 </MenuItem>
               </MenuItems>
             </transition>
-          </Menu>
+          </Menu> -->
         </div>
       </div>
     </div>
@@ -145,7 +145,7 @@ import {
   MenuItem,
   MenuItems,
 } from '@headlessui/vue'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { Bars3Icon, MoonIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const navigation = [
   { name: 'Portfolio', href: '/', current: true },
