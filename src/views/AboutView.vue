@@ -42,8 +42,8 @@
           cloud experience using AWS (S3, Amplify) and Azure (Storage, B2C). I'm also passionate
           about mentoring junior developers, advocating for clean code, and contributing to better
           team practices. Let's connect on
-          <a class="underline underline-offset-4 decoration-indigo-500 text-indigo-400 hover:text-indigo-500" href="https://linkedin.com/in/kamilkahar87" target="_blank">LinkedIn</a> or see what I'm building on
-          <a class="underline underline-offset-4 decoration-indigo-500 text-indigo-400 hover:text-indigo-500" href="https://github.com/kamilpixel" target="_blank">GitHub</a>
+          <a class="underline underline-offset-4 decoration-2 decoration-indigo-500 text-indigo-400 hover:text-indigo-500 font-bold" href="https://linkedin.com/in/kamilkahar87" target="_blank">LinkedIn</a> or see what I'm building on
+          <a class="underline underline-offset-4 decoration-2 decoration-indigo-500 text-indigo-400 hover:text-indigo-500 font-bold" href="https://github.com/kamilpixel" target="_blank">GitHub</a>
         </p>
       </div>
     </div>
