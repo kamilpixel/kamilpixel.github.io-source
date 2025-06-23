@@ -1,6 +1,6 @@
 <template>
   <button class="text-left" @click="openProject()">
-    <div class="ring-1 ring-slate-200 dark:ring-slate-700 rounded-xl overflow-hidden relative w-full h-[486px] shadow hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+    <div class="ring-1 ring-slate-200 dark:ring-slate-700 rounded-xl overflow-hidden relative w-full h-[286px] shadow hover:shadow-lg transition-shadow duration-300 cursor-pointer">
       <!-- Screenshot -->
       <div class="absolute inset-0 w-full h-full transition-transform duration-300 transform hover:scale-105">
         <img
