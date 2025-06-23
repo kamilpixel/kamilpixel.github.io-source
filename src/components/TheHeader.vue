@@ -36,12 +36,14 @@
           class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
         >
           <button
+            @click="toggleTheme"
             type="button"
-            class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
+            class="cursor-pointer relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
           >
             <span class="absolute -inset-1.5" />
             <span class="sr-only">Toggle theme</span>
-            <MoonIcon class="size-6" aria-hidden="true" />
+            <SunIcon v-if="themeStore.isLight" class="size-6" aria-hidden="true" />
+            <MoonIcon v-else class="size-6" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -73,16 +75,20 @@ import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
 } from '@headlessui/vue'
-import { Bars3Icon, MoonIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { Bars3Icon, MoonIcon, XMarkIcon, SunIcon } from '@heroicons/vue/24/outline'
+import { useThemeStore } from '@/stores/themeStore'
 
 const navigation = [
   { name: 'Portfolio', href: '/', current: true },
   { name: 'About', href: '/about', current: false },
   { name: 'Storybook', href: '/example', current: false },
 ]
+
+// Use themeStore to toggle theme
+const themeStore = useThemeStore()
+const toggleTheme = () => {
+  themeStore.toggleTheme()
+}
+
 </script>

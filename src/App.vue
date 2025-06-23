@@ -1,5 +1,8 @@
 <template>
-  <div class="flex flex-col min-h-screen">
+  <div class="flex flex-col min-h-screen dark:bg-gray-800" :class="{
+    'dark': !themeStore.isLight,
+    'bg-white': themeStore.isLight,
+  }">
     <main class="flex-1">
       <!--  Page header -->
       <TheHeader />
@@ -17,6 +20,8 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import TheHeader from '@/components/TheHeader.vue'
+import { useThemeStore } from '@/stores/themeStore'
+const themeStore = useThemeStore()
 </script>
 
 <style scoped></style>
