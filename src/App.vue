@@ -11,9 +11,7 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import TheHeader from '@/components/TheHeader.vue'
-import { useThemeStore } from '@/stores/themeStore'
 import TheFooter from '@/components/TheFooter.vue'
-const themeStore = useThemeStore()
 </script>
 
 <style scoped></style>
