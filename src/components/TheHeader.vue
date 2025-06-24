@@ -38,12 +38,12 @@
           <button
             @click="toggleTheme"
             type="button"
-            class="cursor-pointer relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
+            class="cursor-pointer relative rounded-full bg-gray-900 p-1 text-gray-400 hover:text-white focus:ring-2 focus:gray-500 focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
           >
             <span class="absolute -inset-1.5" />
             <span class="sr-only">Toggle theme</span>
             <SunIcon v-if="themeStore.isLight" class="size-6" aria-hidden="true" />
-            <MoonIcon v-else class="size-6" aria-hidden="true" />
+            <MoonIcon  v-else class="size-6" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -82,13 +82,17 @@ import { useThemeStore } from '@/stores/themeStore'
 const navigation = [
   { name: 'Portfolio', href: '/', current: true },
   { name: 'About', href: '/about', current: false },
-  { name: 'Storybook', href: '/example', current: false },
 ]
 
 // Use themeStore to toggle theme
 const themeStore = useThemeStore()
 const toggleTheme = () => {
   themeStore.toggleTheme()
+  if (!themeStore.isLight) {
+    document.body.classList.add('dark')
+  } else {
+    document.body.classList.remove('dark')
+  }
 }
 
 </script>

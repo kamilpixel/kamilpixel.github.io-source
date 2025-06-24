@@ -27,20 +27,23 @@
             leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           >
             <DialogPanel
-              class="relative transform overflow-hidden md:rounded-lg bg-white text-left shadow-xl transition-all w-full"
+              class="bg-white dark:bg-gray-800 relative transform overflow-hidden md:rounded-lg text-left shadow-xl transition-all w-full"
             >
-              <div class="bg-white p-4">
+              <div class="p-4">
                 <!-- Top close button -->
                 <button
                   type="button"
-                  class="cursor-pointer ml-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200"
+                  class="cursor-pointer ml-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-200 hover:bg-slate-300 dark:bg-slate-600 dark:hover:bg-slate-500"
                   @click="portfolioStore.closeModal()"
                 >
-                  <XMarkIcon class="h-6 w-6 text-slate-600 hover:text-slate-700" aria-hidden="true" />
+                  <XMarkIcon
+                    class="h-6 w-6 text-slate-600 hover:text-slate-700 dark:text-slate-300 dark:hover:text-slate-200"
+                    aria-hidden="true"
+                  />
                 </button>
 
                 <!-- Main portfolio content -->
-                <div class="overflow-hidden bg-white py-24 sm:py-32">
+                <div class="overflow-hidden py-24 sm:py-32">
                   <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div
                       class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
@@ -48,15 +51,15 @@
                       <!-- Text content -->
                       <div class="lg:pt-4 lg:pr-8">
                         <div class="lg:max-w-lg">
-                          <h2 class="text-base/7 font-semibold text-indigo-600">
+                          <h2 class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-500">
                             {{ portfolioStore.selectedPortfolioItem?.project_type }}
                           </h2>
                           <p
-                            class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+                            class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-gray-200 sm:text-5xl"
                           >
                             {{ portfolioStore.selectedPortfolioItem?.project_title }}
                           </p>
-                          <p class="mt-6 text-lg text-gray-600">
+                          <p class="mt-6 text-lg text-gray-600 dark:text-gray-400">
                             {{ portfolioStore.selectedPortfolioItem?.project_description }}
                           </p>
                           <dl
@@ -67,15 +70,15 @@
                               :key="feature.name"
                               class="relative pl-9"
                             >
-                              <dt class="inline font-semibold text-gray-900">
+                              <dt class="inline font-semibold text-gray-900 dark:text-gray-200">
                                 <component
                                   :is="feature.icon"
-                                  class="absolute top-1 left-1 size-5 text-indigo-600"
+                                  class="absolute top-1 left-1 size-5 text-indigo-600 dark:text-indigo-500"
                                   aria-hidden="true"
                                 />
                                 {{ feature.name }}
                               </dt>
-                              <dd class="inline">{{ feature.description }}</dd>
+                              <dd class="pl-2 inline dark:text-gray-400">{{ feature.description }}</dd>
                             </div>
                           </dl>
                         </div>
@@ -92,7 +95,9 @@
               </div>
 
               <!-- Bottom close button -->
-              <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-slate-300">
+              <div
+                class="bg-gray-50 dark:bg-gray-700 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6 border-t border-slate-300 dark:border-slate-600"
+              >
                 <button
                   type="button"
                   class="cursor-pointer inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 sm:ml-3 sm:w-auto"
@@ -110,12 +115,14 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue'
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
 import { Square3Stack3DIcon, UserGroupIcon } from '@heroicons/vue/20/solid'
-
 import { usePortfolioStore } from '@/stores/portfolioStore'
-import { computed } from 'vue'
+import { useThemeStore } from '@/stores/themeStore'
+
+const themeStore = useThemeStore()
 const portfolioStore = usePortfolioStore()
 
 const features = computed(() => [

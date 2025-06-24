@@ -4,8 +4,8 @@
       <div class="justify-center text-gray-500 pb-2">
         <div class="text-center font-semibold tracking-tight text-pretty">
           <img
-            class="mx-auto h-24 w-24 rounded-full shadow-lg shadow-slate-500/50 mb-4 ring-2 ring-slate-300 dark:ring-slate-700"
-            src="https://randomuser.me/api/portraits/lego/1.jpg"
+            class="mx-auto h-24 w-24 rounded-full shadow-lg shadow-slate-500/50 dark:shadow-slate-600/50 mb-4 ring-1 ring-slate-300 dark:ring-slate-700 dark:ring-slate-400"
+            :src="profileImage"
           />
 
           <div class="flex flex-col">
@@ -18,9 +18,9 @@
       </div>
     </div>
 
-    <div class="bg-white pb-4">
+    <div class="pb-4">
       <div
-        class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-lg  text-gray-500 dark:text-gray-400 pt-4"
+        class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-lg text-gray-500 dark:text-gray-400 pt-4"
       >
         <p class="indent-8 pb-4 text-wrap">
           Hi, I'm Kamil a Frontend Developer based in Kuala Lumpur, Malaysia, with over 10 years of
@@ -42,8 +42,19 @@
           cloud experience using AWS (S3, Amplify) and Azure (Storage, B2C). I'm also passionate
           about mentoring junior developers, advocating for clean code, and contributing to better
           team practices. Let's connect on
-          <a class="underline underline-offset-4 decoration-2 decoration-indigo-500 text-indigo-400 hover:text-indigo-500 font-bold" href="https://linkedin.com/in/kamilkahar87" target="_blank">LinkedIn</a> or see what I'm building on
-          <a class="underline underline-offset-4 decoration-2 decoration-indigo-500 text-indigo-400 hover:text-indigo-500 font-bold" href="https://github.com/kamilpixel" target="_blank">GitHub</a>
+          <a
+            class="underline underline-offset-4 decoration-2 decoration-indigo-500 text-indigo-400 hover:text-indigo-500 dark:text-indigo-500 dark:hover:text-indigo-600 font-bold"
+            href="https://linkedin.com/in/kamilkahar87"
+            target="_blank"
+            >LinkedIn</a
+          >
+          or see what I'm building on
+          <a
+            class="underline underline-offset-4 decoration-2 decoration-indigo-500 text-indigo-400 hover:text-indigo-500 dark:text-indigo-500 dark:hover:text-indigo-600 font-bold"
+            href="https://github.com/kamilpixel"
+            target="_blank"
+            >GitHub</a
+          >
         </p>
       </div>
     </div>
@@ -51,6 +62,9 @@
 </template>
 
 <script lang="ts" setup>
+import { useProfileImage } from '@/composables/useProfileImage.ts'
+const { profileImage } = useProfileImage()
+
 const people = [
   {
     name: 'Leslie Alexander',
