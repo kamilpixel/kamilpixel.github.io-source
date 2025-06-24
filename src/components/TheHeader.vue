@@ -16,10 +16,10 @@
         <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div class="hidden md:block">
             <div class="flex space-x-4">
-              <a
+              <RouterLink
                 v-for="item in navigation"
                 :key="item.name"
-                :href="item.href"
+                :to="item.href"
                 :class="[
                   item.current
                     ? 'bg-gray-900 text-white'
@@ -27,7 +27,7 @@
                   'rounded-md px-3 py-2 text-sm font-medium',
                 ]"
                 :aria-current="item.current ? 'page' : undefined"
-                >{{ item.name }}</a
+                >{{ item.name }}</RouterLink
               >
             </div>
           </div>
@@ -43,7 +43,7 @@
             <span class="absolute -inset-1.5" />
             <span class="sr-only">Toggle theme</span>
             <SunIcon v-if="themeStore.isLight" class="size-6" aria-hidden="true" />
-            <MoonIcon  v-else class="size-6" aria-hidden="true" />
+            <MoonIcon v-else class="size-6" aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -51,33 +51,29 @@
 
     <DisclosurePanel class="sm:hidden">
       <div class="space-y-1 px-2 pt-2 pb-3">
-        <DisclosureButton
-          v-for="item in navigation"
-          :key="item.name"
-          as="a"
-          :href="item.href"
-          :class="[
-            item.current
-              ? 'bg-gray-900 text-white'
-              : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-            'block rounded-md px-3 py-2 text-base font-medium',
-          ]"
-          :aria-current="item.current ? 'page' : undefined"
-          >{{ item.name }}</DisclosureButton
-        >
+        <DisclosureButton v-for="item in navigation" :key="item.name" as="template">
+          <RouterLink
+            :to="item.href"
+            :class="[
+              item.current
+                ? 'bg-gray-900 text-white'
+                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+              'block rounded-md px-3 py-2 text-base font-medium',
+            ]"
+            :aria-current="item.current ? 'page' : undefined"
+            >{{ item.name }}</RouterLink
+          >
+        </DisclosureButton>
       </div>
     </DisclosurePanel>
   </Disclosure>
 </template>
 
 <script setup>
-import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-} from '@headlessui/vue'
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
 import { Bars3Icon, MoonIcon, XMarkIcon, SunIcon } from '@heroicons/vue/24/outline'
 import { useThemeStore } from '@/stores/themeStore'
+import { RouterLink } from 'vue-router'
 
 const navigation = [
   { name: 'Portfolio', href: '/', current: true },
@@ -94,5 +90,4 @@ const toggleTheme = () => {
     document.body.classList.remove('dark')
   }
 }
-
 </script>
