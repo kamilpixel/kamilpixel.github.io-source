@@ -51,7 +51,9 @@
                       <!-- Text content -->
                       <div class="lg:pt-4 lg:pr-8">
                         <div class="lg:max-w-lg">
-                          <h2 class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-500">
+                          <h2
+                            class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-500"
+                          >
                             {{ portfolioStore.selectedPortfolioItem?.project_type }}
                           </h2>
                           <p
@@ -78,17 +80,21 @@
                                 />
                                 {{ feature.name }}
                               </dt>
-                              <dd class="pl-2 inline dark:text-gray-400">{{ feature.description }}</dd>
+                              <dd class="pl-2 inline dark:text-gray-400">
+                                {{ feature.description }}
+                              </dd>
                             </div>
                           </dl>
                         </div>
                       </div>
                       <!-- Screenshot content -->
-                      <img
-                        :src="portfolioStore.selectedPortfolioItem?.project_screenshot"
-                        :alt="portfolioStore.selectedPortfolioItem?.project_title"
-                        class="object-contain rounded-lg"
-                      />
+                      <div class="flex justify-center items-center">
+                        <img
+                          :src="portfolioStore.selectedPortfolioItem?.project_screenshot"
+                          :alt="portfolioStore.selectedPortfolioItem?.project_title"
+                          class="object-contain rounded-lg"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -118,7 +124,7 @@
 import { computed } from 'vue'
 import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
 import { XMarkIcon } from '@heroicons/vue/24/outline'
-import { Square3Stack3DIcon, UserGroupIcon } from '@heroicons/vue/20/solid'
+import { Square3Stack3DIcon, UserGroupIcon, UserIcon } from '@heroicons/vue/20/solid'
 import { usePortfolioStore } from '@/stores/portfolioStore'
 import { useThemeStore } from '@/stores/themeStore'
 
@@ -135,6 +141,11 @@ const features = computed(() => [
     name: 'Team',
     description: portfolioStore.selectedPortfolioItem?.project_team,
     icon: UserGroupIcon,
+  },
+  {
+    name: 'Role',
+    description: portfolioStore.selectedPortfolioItem?.project_role,
+    icon: UserIcon,
   },
 ])
 </script>
