@@ -89,11 +89,16 @@
                       </div>
                       <!-- Screenshot content -->
                       <div class="flex justify-center items-center">
-                        <img
-                          :src="portfolioStore.selectedPortfolioItem?.project_screenshot"
-                          :alt="portfolioStore.selectedPortfolioItem?.project_title"
-                          class="object-contain rounded-lg"
-                        />
+                        <div>
+                          <img
+                            :src="portfolioStore.selectedPortfolioItem?.project_screenshot"
+                            :alt="portfolioStore.selectedPortfolioItem?.project_title"
+                            class="object-contain rounded-lg"
+                          />
+                          <p class="text-xs text-gray-400 dark:text-gray-500 text-center mt-4 italic">
+                            All logos and content belong to their original owners.
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>

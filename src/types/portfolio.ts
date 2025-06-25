@@ -12,4 +12,5 @@ export interface PortfolioItem {
   project_description: string;
   project_thumbnail: string;
   project_screenshot: string;
+  project_visible: boolean;
 }
