@@ -1,134 +1,134 @@
 [
-    {
-        "project_title": "Smart Pricing Dashboard (Coming soon)",
-        "project_type": "Frontend Development",
-        "project_tech_stack": "ReactJS",
-        "project_team": "(Coming soon)",
-        "project_role": "Frontend Developer",
-        "project_description": "(Coming soon)",
-        "project_thumbnail": "https://picsum.photos/400/400",
-        "project_screenshot": "https://picsum.photos/1920/1080",
-        "project_visible": true
-    },
-    {
-        "project_title": "CargoTrack Air Freight Status Dashboard (Coming soon)",
-        "project_type": "Frontend Development",
-        "project_tech_stack": "AngularJS",
-        "project_team": "(Coming soon)",
-        "project_role": "Frontend Developer",
-        "project_description": "(Coming soon)",
-        "project_thumbnail": "https://picsum.photos/400/400",
-        "project_screenshot": "https://picsum.photos/1920/1080",
-        "project_visible": true
-    },
-    {
-        "project_title": "Realtime Hospital Staff Display",
-        "project_type": "Frontend Development",
-        "project_tech_stack": "Vue 3, Vite, Pinia, Tailwind CSS, SCSS, WebSocket, Python Django",
-        "project_team": "Frontend Developers, Fullstack Developer, Product Owner",
-        "project_role": "Frontend Developer",
-        "project_description": "I worked on a SaaS prototype designed to display real-time hospital staff duty information across various devices. My focus was on building a responsive and user-friendly interface that adapts seamlessly to different screen sizes, including 4K monitors and tablets. I implemented WebSocket integration to enable live status updates across all user screens. The tech stack included Vue 3, Vite, Pinia, Tailwind SCSS, and Python Django. I collaborated closely with another frontend developer, a fullstack developer, and a product owner throughout the project",
-        "project_thumbnail": "https://picsum.photos/400/400",
-        "project_screenshot": "https://picsum.photos/1920/1080",
-        "project_visible": true
-    },
-    {
-        "project_title": "Online Learning Center Marketplace",
-        "project_type": "Frontend Development",
-        "project_tech_stack": "Nuxt, Vuex, Bootstrap 5, SCSS, GitLab CI/CD, AWS S3, AWS Amplify, Laravel",
-        "project_team": "Frontend Developers, Backend Developers, Product Owner, Tech Lead",
-        "project_role": "Senior Frontend Developer",
-        "project_description": "As a Senior Frontend Developer, I developed a fully responsive web interface using Vue and Nuxt, with a strong emphasis on performance, scalability, and maintainability. I implemented designs into a structured frontend architecture, integrated RESTful APIs provided by the backend team (Laravel), and set up CI/CD pipelines in GitLab for automated deployment to AWS S3 and Amplify",
-        "project_thumbnail": "https://picsum.photos/400/400",
-        "project_screenshot": "assets/portfolio/alearn/screenshot.jpg",
-        "project_visible": true
-    },
-    {
-        "project_title": "Online Learning Center Management System",
-        "project_type": "Frontend Development",
-        "project_tech_stack": "Vue 2, Vuex, Bootstrap 5, SCSS, Laravel, GitLab CI/CD, AWS S3, AWS Amplify, Laravel",
-        "project_team": "Frontend Developers, Backend Developers, Tech Lead, Product Owner",
-        "project_role": "Senior Frontend Developer",
-        "project_description": "..",
-        "project_thumbnail": "https://picsum.photos/400/400",
-        "project_screenshot": "https://picsum.photos/1920/1080",
-        "project_visible": true
-    },
-     {
-        "project_title": "Passive Social Media Feed Display",
-        "project_type": "Custom Development",
-        "project_tech_stack": "HTML, CSS, Javascript, PHP, AJAX",
-        "project_team": "UX Designer, UX Developer, Product Owner, Project Manager, QA Tester",
-        "project_role": "UX Developer",
-        "project_description": "I developed a passive social media feed display for digital signage, featuring a near real-time, responsive interface built with HTML, CSS, JavaScript, PHP, and AJAX. I optimized the layout for readability and clarity, and integrated social media APIs from Facebook, Twitter, and Instagram to automatically fetch and display live content",
-        "project_thumbnail": "assets/portfolio/nes/thumbnail.jpg",
-        "project_screenshot": "assets/portfolio/nes/screenshot.jpg",
-        "project_visible": true
-    },
-    {
-        "project_title": "Project Overview & Insights Dashboard",
-        "project_type": "UI/UX Design",
-        "project_tech_stack": "Figma",
-        "project_team": "UI Designer, Product Owner",
-        "project_role": "UI Designer (Freelance)",
-        "project_description": "I designed a clean, user-friendly dashboard for a project management system using Figma. The UI highlights key metrics like project status, revenue, and analytics in an organized, responsive layout. I worked closely with a product owner to ensure the design aligned with business goals and user needs",
-        "project_thumbnail": "assets/portfolio/dash/thumbnail.jpg",
-        "project_screenshot": "assets/portfolio/dash/screenshot.jpg",
-        "project_visible": true
-    },
-    {
-        "project_title": "Treva Travel Login Interface",
-        "project_type": "UI/UX Design",
-        "project_tech_stack": "Adobe XD",
-        "project_team": "Solo",
-        "project_role": "Designer",
-        "project_description": "I created a sleek, responsive login interface design for Treva Travel, blending a modern UI/UX approach with a vibrant color scheme and an intuitive layout. I ensured the design adapts seamlessly across desktop, tablet, and mobile devices, enhancing the user experience with a focus on accessibility and visual appeal",
-        "project_thumbnail": "assets/portfolio/treva/thumbnail.jpg",
-        "project_screenshot": "assets/portfolio/treva/screenshot.jpg",
-        "project_visible": true
-    },
-    {
-        "project_title": "Cayla Perfume Website",
-        "project_type": "Website Design & Development",
-        "project_tech_stack": "HTML, CSS, Javascript, jQuery, PHP, MySQL, Wordpress, Bootstrap",
-        "project_team": "Web Designer & Developer, Product Owner",
-        "project_role": "Web Designer & Developer (Freelance)",
-        "project_description": "I designed and developed a responsive website for Cayla Perfume, a Malaysian-inspired perfume brand. The site was built using WordPress along with custom code in HTML, CSS, JavaScript, jQuery, PHP, and MySQL. I collaborated closely with the product owner to ensure the website aligned with the brand's aesthetic and goals",
-        "project_thumbnail": "assets/portfolio/cayla/thumbnail.jpg",
-        "project_screenshot": "assets/portfolio/cayla/screenshot.jpg",
-        "project_visible": true
-    },
-    {
-        "project_title": "DOF Microfilm Website",
-        "project_type": "Website Design & Development",
-        "project_tech_stack": "HTML, CSS, Javascript, PHP, Photoshop",
-        "project_team": "Web Designer, Product Owner",
-        "project_role": "Web Designer (Freelance)",
-        "project_description": "The company offers a variety of microfilming services that follow international standards and best practices, including indexing, as well as cleaning and treating damaged films. I designed and developed the website from scratch, handling everything from the initial design stage to deployment. I used Photoshop for the design, and HTML, CSS, and PHP to build the contact form module. You can visit the website at www.dofmicrofilm.com.my",
-        "project_thumbnail": "assets/portfolio/dof/thumbnail.jpg",
-        "project_screenshot": "assets/portfolio/dof/screenshot.jpg",
-        "project_visible": true
-    },
-    {
-        "project_title": "Mercumaya Website",
-        "project_type": "Website Design",
-        "project_tech_stack": "HTML, CSS, Photoshop, Flash",
-        "project_team": "Web Designer, Product Owner",
-        "project_role": "Web Designer (Freelance)",
-        "project_description": "I designed a corporate website for Mercumaya, a web hosting service provider. I focused on creating a clean and professional layout that reflects the company's brand identity. My responsibilities included designing the website layout using Photoshop and developing the frontend using HTML and CSS. I used Flash to add interactive elements. I collaborated closely with the product owner to ensure the design met business goals and user needs",
-        "project_thumbnail": "assets/portfolio/mercu/thumbnail.jpg",
-        "project_screenshot": "assets/portfolio/mercu/screenshot.jpg",
-        "project_visible": true
-    },
-    {
-        "project_title": "Pro Agent Property Landing Page",
-        "project_type": "Frontend Development",
-        "project_tech_stack": "HTML, SCSS, ReactJS, NextJS, Bootstrap",
-        "project_team": "Frontend Developers, Backend Developers, Product Owner",
-        "project_role": "Frontend Developer",
-        "project_description": "I built a static responsive landing page with a clear Call-to-Action (CTA) for the Pro Agent Property platform, featuring sections like 'Schedule Appointment,' and 'Why Work with Us'. Using ReactJS, HTML, SCSS, and Bootstrap, I developed this small component as part of a larger project",
-        "project_thumbnail": "https://picsum.photos/400/400",
-        "project_screenshot": "https://picsum.photos/1920/1080",
-        "project_visible": true
-    }
+  {
+    "project_title": "Smart Pricing Dashboard (Coming soon)",
+    "project_type": "Frontend Development",
+    "project_tech_stack": "ReactJS",
+    "project_team": "Solo",
+    "project_role": "Frontend Developer",
+    "project_description": "(Coming soon)",
+    "project_thumbnail": "https://picsum.photos/400/400",
+    "project_screenshot": "https://picsum.photos/1920/1080",
+    "project_visible": false
+  },
+  {
+    "project_title": "CargoTrack Air Freight Status Dashboard (Coming soon)",
+    "project_type": "Frontend Development",
+    "project_tech_stack": "AngularJS",
+    "project_team": "Solo",
+    "project_role": "Frontend Developer",
+    "project_description": "(Coming soon)",
+    "project_thumbnail": "https://picsum.photos/400/400",
+    "project_screenshot": "https://picsum.photos/1920/1080",
+    "project_visible": false
+  },
+  {
+    "project_title": "Realtime Hospital Staff Display",
+    "project_type": "Frontend Development",
+    "project_tech_stack": "Vue 3, Vite, Pinia, Tailwind CSS, SCSS, WebSocket, Python Django",
+    "project_team": "Frontend Developers, Fullstack Developer, Product Owner",
+    "project_role": "Frontend Developer",
+    "project_description": "I worked on a SaaS prototype designed to display real-time hospital staff duty information across various devices. My focus was on building a responsive and user-friendly interface that adapts seamlessly to different screen sizes, including 4K monitors and tablets. I implemented WebSocket integration to enable live status updates across all user screens. The tech stack included Vue 3, Vite, Pinia, Tailwind SCSS, and Python Django. I collaborated closely with another frontend developer, a fullstack developer, and a product owner throughout the project",
+    "project_thumbnail": "assets/portfolio/teamnow/thumbnail.jpg",
+    "project_screenshot": "assets/portfolio/teamnow/screenshot.jpg",
+    "project_visible": true
+  },
+  {
+    "project_title": "CurioLearn Education Marketplace",
+    "project_type": "Frontend Development",
+    "project_tech_stack": "Nuxt, Vuex, Bootstrap 5, SCSS, GitLab CI/CD, AWS S3, AWS Amplify, Laravel",
+    "project_team": "Frontend Developers, Backend Developers, Product Owner, Tech Lead",
+    "project_role": "Senior Frontend Developer",
+    "project_description": "I built a fully responsive web interface using Vue and Nuxt, focusing on performance, scalability, and easy maintenance. CurioLearn Education Marketplace is an online platform that connects individuals and organizations offering educational services, including tutors, part-time instructors, and learning centers, with those seeking to learn new skills or receive academic support. I translated design files into a clean, structured frontend, integrated RESTful APIs from the backend team using Laravel, and set up CI/CD pipelines in GitLab for automated deployment to AWS S3 and Amplify.",
+    "project_thumbnail": "assets/portfolio/alearn/thumbnail.jpg",
+    "project_screenshot": "assets/portfolio/alearn/screenshot.jpg",
+    "project_visible": true
+  },
+  {
+    "project_title": "Learning Center Management System",
+    "project_type": "Frontend Development",
+    "project_tech_stack": "Vue 2, Vuex, Bootstrap 5, SCSS, Laravel, GitLab CI/CD, AWS S3, AWS Amplify, Laravel",
+    "project_team": "Frontend Developers, Backend Developers, Tech Lead, Product Owner",
+    "project_role": "Senior Frontend Developer",
+    "project_description": "I led the frontend development of the Learning Center Management System using Nuxt, Vuex, Bootstrap 5, SCSS, GitLab CI/CD, AWS S3, and AWS Amplify, while others handled the backend. This platform manages students, teachers, subjects, and tuition fees. I built a responsive UI with Vuex for state management and deployed assets to AWS, collaborating with the frontend team, product owner, and tech lead. This project highlights my leadership in delivering a scalable educational frontend solution",
+    "project_thumbnail": "assets/portfolio/aschools/thumbnail.jpg",
+    "project_screenshot": "assets/portfolio/aschools/screenshot.jpg",
+    "project_visible": true
+  },
+  {
+    "project_title": "Pro Agent Property Landing Page",
+    "project_type": "Frontend Development",
+    "project_tech_stack": "HTML, SCSS, ReactJS, NextJS, Bootstrap",
+    "project_team": "Frontend Developers, Backend Developers, Product Owner",
+    "project_role": "Frontend Developer",
+    "project_description": "I built a static responsive landing page with a clear Call-to-Action (CTA) for the Pro Agent Property platform, featuring sections like 'Schedule Appointment,' and 'Why Work with Us'. Using ReactJS, HTML, SCSS, and Bootstrap, I developed this small component as part of a larger project",
+    "project_thumbnail": "assets/portfolio/prop/thumbnail.jpg",
+    "project_screenshot": "assets/portfolio/prop/screenshot.jpg",
+    "project_visible": true
+  },
+  {
+    "project_title": "Passive Social Media Feed Display",
+    "project_type": "Custom Development",
+    "project_tech_stack": "HTML, CSS, Javascript, PHP, AJAX",
+    "project_team": "UX Designer, UX Developer, Product Owner, Project Manager, QA Tester",
+    "project_role": "UX Developer",
+    "project_description": "I developed a passive social media feed display for digital signage, featuring a near real-time, responsive interface built with HTML, CSS, JavaScript, PHP, and AJAX. I optimized the layout for readability and clarity, and integrated social media APIs from Facebook, Twitter, and Instagram to automatically fetch and display live content",
+    "project_thumbnail": "assets/portfolio/nes/thumbnail.jpg",
+    "project_screenshot": "assets/portfolio/nes/screenshot.jpg",
+    "project_visible": true
+  },
+  {
+    "project_title": "Project Overview & Insights Dashboard",
+    "project_type": "UI/UX Design",
+    "project_tech_stack": "Figma",
+    "project_team": "UI Designer, Product Owner",
+    "project_role": "UI Designer (Freelance)",
+    "project_description": "I designed a clean, user-friendly dashboard for a project management system using Figma. The UI highlights key metrics like project status, revenue, and analytics in an organized, responsive layout. I worked closely with a product owner to ensure the design aligned with business goals and user needs",
+    "project_thumbnail": "assets/portfolio/dash/thumbnail.jpg",
+    "project_screenshot": "assets/portfolio/dash/screenshot.jpg",
+    "project_visible": true
+  },
+  {
+    "project_title": "Treva Travel Login Interface",
+    "project_type": "UI/UX Design",
+    "project_tech_stack": "Adobe XD",
+    "project_team": "Solo",
+    "project_role": "Designer",
+    "project_description": "I created a sleek, responsive login interface design for Treva Travel, blending a modern UI/UX approach with a vibrant color scheme and an intuitive layout. I ensured the design adapts seamlessly across desktop, tablet, and mobile devices, enhancing the user experience with a focus on accessibility and visual appeal",
+    "project_thumbnail": "assets/portfolio/treva/thumbnail.jpg",
+    "project_screenshot": "assets/portfolio/treva/screenshot.jpg",
+    "project_visible": true
+  },
+  {
+    "project_title": "Cayla Perfume Website",
+    "project_type": "Website Design & Development",
+    "project_tech_stack": "HTML, CSS, Javascript, jQuery, PHP, MySQL, Wordpress, Bootstrap",
+    "project_team": "Web Designer & Developer, Product Owner",
+    "project_role": "Web Designer & Developer (Freelance)",
+    "project_description": "I designed and developed a responsive website for Cayla Perfume, a Malaysian-inspired perfume brand. The site was built using WordPress along with custom code in HTML, CSS, JavaScript, jQuery, PHP, and MySQL. I collaborated closely with the product owner to ensure the website aligned with the brand's aesthetic and goals",
+    "project_thumbnail": "assets/portfolio/cayla/thumbnail.jpg",
+    "project_screenshot": "assets/portfolio/cayla/screenshot.jpg",
+    "project_visible": true
+  },
+  {
+    "project_title": "DOF Microfilm Website",
+    "project_type": "Website Design & Development",
+    "project_tech_stack": "HTML, CSS, Javascript, PHP, Photoshop",
+    "project_team": "Web Designer, Product Owner",
+    "project_role": "Web Designer (Freelance)",
+    "project_description": "The company offers a variety of microfilming services that follow international standards and best practices, including indexing, as well as cleaning and treating damaged films. I designed and developed the website from scratch, handling everything from the initial design stage to deployment. I used Photoshop for the design, and HTML, CSS, and PHP to build the contact form module. You can visit the website at www.dofmicrofilm.com.my",
+    "project_thumbnail": "assets/portfolio/dof/thumbnail.jpg",
+    "project_screenshot": "assets/portfolio/dof/screenshot.jpg",
+    "project_visible": true
+  },
+  {
+    "project_title": "MercuBlitz Website",
+    "project_type": "Website Design",
+    "project_tech_stack": "HTML, CSS, Photoshop, Flash",
+    "project_team": "Web Designer, Product Owner",
+    "project_role": "Web Designer (Freelance)",
+    "project_description": "I designed a corporate website for MercuBlitz, a web hosting service provider. I focused on creating a clean and professional layout that reflects the company's brand identity. My responsibilities included designing the website layout using Photoshop and developing the frontend using HTML and CSS. I used Flash to add interactive elements. I collaborated closely with the product owner to ensure the design met business goals and user needs",
+    "project_thumbnail": "assets/portfolio/mercu/thumbnail.jpg",
+    "project_screenshot": "assets/portfolio/mercu/screenshot.jpg",
+    "project_visible": true
+  }
 ]

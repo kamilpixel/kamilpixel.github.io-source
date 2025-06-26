@@ -93,7 +93,7 @@
                           <img
                             :src="portfolioStore.selectedPortfolioItem?.project_screenshot"
                             :alt="portfolioStore.selectedPortfolioItem?.project_title"
-                            class="object-contain rounded-lg"
+                            class="object-contain rounded-lg mb-4 ring-1 ring-slate-300 dark:ring-slate-700 dark:ring-slate-400"
                           />
                           <p class="text-xs text-gray-400 dark:text-gray-500 text-center mt-4 italic">
                             All logos and content belong to their original owners.

@@ -8,7 +8,7 @@
           :src="item?.project_thumbnail"
           :alt="item?.project_title"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
       </div>  
       
       <!-- Content -->
