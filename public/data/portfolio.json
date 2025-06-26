@@ -1,14 +1,14 @@
 [
   {
-    "project_title": "Smart Pricing Dashboard (Coming soon)",
+    "project_title": "FuelFlux - Smart Pricing Dashboard",
     "project_type": "Frontend Development",
-    "project_tech_stack": "ReactJS",
+    "project_tech_stack": "ReactJS/NextJS",
     "project_team": "Solo",
     "project_role": "Frontend Developer",
-    "project_description": "(Coming soon)",
-    "project_thumbnail": "https://picsum.photos/400/400",
-    "project_screenshot": "https://picsum.photos/1920/1080",
-    "project_visible": false
+    "project_description": "Coming soon...",
+    "project_thumbnail": "https://placehold.co/600x400?text=Coming+Soon",
+    "project_screenshot": "https://placehold.co/1920x1080?text=Coming+Soon",
+    "project_visible": true
   },
   {
     "project_title": "CargoTrack Air Freight Status Dashboard (Coming soon)",
@@ -17,8 +17,8 @@
     "project_team": "Solo",
     "project_role": "Frontend Developer",
     "project_description": "(Coming soon)",
-    "project_thumbnail": "https://picsum.photos/400/400",
-    "project_screenshot": "https://picsum.photos/1920/1080",
+    "project_thumbnail": "https://placehold.co/600x400?text=Coming+Soon",
+    "project_screenshot": "https://placehold.co/1920x1080?text=Coming+Soon",
     "project_visible": false
   },
   {

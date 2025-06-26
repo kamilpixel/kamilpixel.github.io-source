@@ -46,56 +46,62 @@
                 <div class="overflow-hidden py-24 sm:py-32">
                   <div class="mx-auto max-w-7xl px-6 lg:px-8">
                     <div
-                      class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+                      class="mx-auto max-w-2xl gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none"
                     >
                       <!-- Text content -->
-                      <div class="lg:pt-4 lg:pr-8">
-                        <div class="lg:max-w-lg">
-                          <h2
-                            class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-500"
-                          >
-                            {{ portfolioStore.selectedPortfolioItem?.project_type }}
-                          </h2>
-                          <p
-                            class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-gray-200 sm:text-5xl"
-                          >
-                            {{ portfolioStore.selectedPortfolioItem?.project_title }}
-                          </p>
-                          <p class="mt-6 text-lg text-gray-600 dark:text-gray-400">
-                            {{ portfolioStore.selectedPortfolioItem?.project_description }}
-                          </p>
-                          <dl
-                            class="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none"
-                          >
-                            <div
-                              v-for="feature in features"
-                              :key="feature.name"
-                              class="relative pl-9"
-                            >
-                              <dt class="inline font-semibold text-gray-900 dark:text-gray-200">
-                                <component
-                                  :is="feature.icon"
-                                  class="absolute top-1 left-1 size-5 text-indigo-600 dark:text-indigo-500"
-                                  aria-hidden="true"
-                                />
-                                {{ feature.name }}
-                              </dt>
-                              <dd class="pl-2 inline dark:text-gray-400">
-                                {{ feature.description }}
-                              </dd>
+                      <div class="lg:pt-4 lg:pr-8 md:pb-4">
+                        <div class="w-full">
+                          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 pb-4">
+                            <div>
+                              <h2
+                                class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-500"
+                              >
+                                {{ portfolioStore.selectedPortfolioItem?.project_type }}
+                              </h2>
+                              <p
+                                class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-gray-200 sm:text-5xl"
+                              >
+                                {{ portfolioStore.selectedPortfolioItem?.project_title }}
+                              </p>
+                              <p class="mt-6 text-lg text-gray-600 dark:text-gray-400">
+                                {{ portfolioStore.selectedPortfolioItem?.project_description }}
+                              </p>
                             </div>
-                          </dl>
+                            <dl
+                              class="max-w-xl space-y-8 md:space-y-4 text-base/7 text-gray-600 lg:max-w-none"
+                            >
+                              <div
+                                v-for="feature in features"
+                                :key="feature.name"
+                                class="relative pl-9"
+                              >
+                                <dt class="inline font-semibold text-gray-900 dark:text-gray-200">
+                                  <component
+                                    :is="feature.icon"
+                                    class="absolute top-1 left-1 size-5 text-indigo-600 dark:text-indigo-500"
+                                    aria-hidden="true"
+                                  />
+                                  {{ feature.name }}
+                                </dt>
+                                <dd class="pl-2 inline dark:text-gray-400">
+                                  {{ feature.description }}
+                                </dd>
+                              </div>
+                            </dl>
+                          </div>
                         </div>
                       </div>
                       <!-- Screenshot content -->
                       <div class="flex justify-center items-center">
-                        <div>
+                        <div class="w-full">
                           <img
                             :src="portfolioStore.selectedPortfolioItem?.project_screenshot"
                             :alt="portfolioStore.selectedPortfolioItem?.project_title"
-                            class="object-contain rounded-lg mb-4 ring-1 ring-slate-300 dark:ring-slate-700 dark:ring-slate-400"
+                            class="w-full h-auto object-contain rounded-lg mb-4 ring-1 ring-slate-300 dark:ring-slate-700 dark:ring-slate-400"
                           />
-                          <p class="text-xs text-gray-400 dark:text-gray-500 text-center mt-4 italic">
+                          <p
+                            class="text-xs text-gray-400 dark:text-gray-500 text-center mt-4 italic"
+                          >
                             All logos and content belong to their original owners.
                           </p>
                         </div>
