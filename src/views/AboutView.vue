@@ -65,4 +65,5 @@
 import { useProfileImage } from '@/composables/useProfileImage.ts';
 const { profileImage } = useProfileImage();
 const a = 'testing';
+const b = 'test2';
 </script>
