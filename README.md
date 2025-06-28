@@ -6,6 +6,8 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![Pinia](https://img.shields.io/badge/Pinia-F6D860?style=for-the-badge&logo=pinia&logoColor=black)
 
+### Visit the live website at https://kamilpixel.github.io
+
 A modern, fast, and fully responsive **personal portfolio** site built with [Vue 3](https://vuejs.org/), [Vite](https://vitejs.dev/), [Tailwind CSS](https://tailwindcss.com/), and [TypeScript](https://www.typescriptlang.org/).  
 This project is created by **Kamil** to showcase professional experience, freelance work, and technical skills in a clean and polished interface.
 
