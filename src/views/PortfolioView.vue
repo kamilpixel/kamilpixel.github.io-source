@@ -24,19 +24,20 @@
     </p>
 
     <div class="p-5 bg-gray-100 dark:bg-gray-800 mb-8 text-wrap">
-      <div class="flex items-center gap-2 mb-2">
+      <div class="md:flex md:items-center gap-4 mb-2">
         <InformationCircleIcon
-          class="h-6 w-6 text-slate-600 hover:text-slate-700 dark:text-slate-300 dark:hover:text-slate-200"
+          class="h-6 w-6 text-slate-600 hover:text-slate-700 dark:text-slate-300 dark:hover:text-slate-200 mb-2 md:mb-0"
           aria-hidden="true"
         />
-        <h2 class="text-xl font-semibold text-slate-700 dark:text-gray-200">Featured works</h2>
-      </div>
+        <div>
+          <h2 class="text-xl font-semibold text-slate-700 dark:text-gray-200">Featured works</h2>
 
-      <p class="text-gray-500 dark:text-gray-400">
-        Below are my freelance and professional projects. Some have been anonymized or recreated to
-        respect client confidentiality, but the work shown reflects my real contributions without
-        revealing any sensitive details
-      </p>
+          <p class="text-gray-500 dark:text-gray-400">
+            Below are selected freelance and professional projects. Some details have been changed
+            for confidentiality, but they show the kind of work I do
+          </p>
+        </div>
+      </div>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

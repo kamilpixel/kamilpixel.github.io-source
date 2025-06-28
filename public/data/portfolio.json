@@ -1,16 +1,5 @@
 [
   {
-    "project_title": "FuelFlux - Smart Pricing Dashboard",
-    "project_type": "Frontend Development",
-    "project_tech_stack": "ReactJS/NextJS",
-    "project_team": "Solo",
-    "project_role": "Frontend Developer",
-    "project_description": "Coming soon...",
-    "project_thumbnail": "https://placehold.co/600x400?text=Coming+Soon",
-    "project_screenshot": "https://placehold.co/1920x1080?text=Coming+Soon",
-    "project_visible": true
-  },
-  {
     "project_title": "CargoTrack Air Freight Status Dashboard (Coming soon)",
     "project_type": "Frontend Development",
     "project_tech_stack": "AngularJS",
@@ -129,6 +118,17 @@
     "project_description": "I designed a corporate website for MercuBlitz, a web hosting service provider. I focused on creating a clean and professional layout that reflects the company's brand identity. My responsibilities included designing the website layout using Photoshop and developing the frontend using HTML and CSS. I used Flash to add interactive elements. I collaborated closely with the product owner to ensure the design met business goals and user needs",
     "project_thumbnail": "assets/portfolio/mercu/thumbnail.jpg",
     "project_screenshot": "assets/portfolio/mercu/screenshot.jpg",
+    "project_visible": true
+  },
+  {
+    "project_title": "FuelFlux - Smart Pricing Dashboard",
+    "project_type": "Frontend Development",
+    "project_tech_stack": "ReactJS/NextJS",
+    "project_team": "Solo",
+    "project_role": "Frontend Developer",
+    "project_description": "Coming soon...",
+    "project_thumbnail": "https://placehold.co/600x400?text=Coming+Soon",
+    "project_screenshot": "https://placehold.co/1920x1080?text=Coming+Soon",
     "project_visible": true
   }
 ]
