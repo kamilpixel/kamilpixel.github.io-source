@@ -33,8 +33,9 @@
           <h2 class="text-xl font-semibold text-slate-700 dark:text-gray-200">Featured works</h2>
 
           <p class="text-gray-500 dark:text-gray-400">
-            Below are selected freelance and professional projects. Some details have been changed
-            for confidentiality, but they show the kind of work I do
+            Below are selected freelance and professional projects. Some visuals and details have
+            been anonymized or recreated to maintain confidentiality, but they still reflect the
+            kind of work I do
           </p>
         </div>
       </div>

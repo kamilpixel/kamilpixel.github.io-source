@@ -74,11 +74,15 @@ import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
 import { Bars3Icon, MoonIcon, XMarkIcon, SunIcon } from '@heroicons/vue/24/outline';
 import { useThemeStore } from '@/stores/themeStore';
 import { RouterLink } from 'vue-router';
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 
-const navigation = [
-  { name: 'Portfolio', href: '/', current: true },
-  { name: 'About', href: '/about', current: false },
-];
+const route = useRoute();
+const navigation = computed(() => [
+  // Check current route by name, if match set current to true
+  { name: 'Portfolio', href: '/', current: route.name === 'portfolio' },
+  { name: 'About', href: '/about', current: route.name === 'about' },
+]);
 
 // Use themeStore to toggle theme
 const themeStore = useThemeStore();
