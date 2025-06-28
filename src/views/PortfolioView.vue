@@ -23,7 +23,22 @@
       Azure, React, and AngularJS, and enjoy writing clean code and collaborating with teams
     </p>
 
-    <!-- <h2 class="pb-4 font-semibold text-slate-400">Featured works</h2> -->
+    <div class="p-5 bg-gray-100 dark:bg-gray-800 mb-8 text-wrap">
+      <div class="flex items-center gap-2 mb-2">
+        <InformationCircleIcon
+          class="h-6 w-6 text-slate-600 hover:text-slate-700 dark:text-slate-300 dark:hover:text-slate-200"
+          aria-hidden="true"
+        />
+        <h2 class="text-xl font-semibold text-slate-700 dark:text-gray-200">Featured works</h2>
+      </div>
+
+      <p class="text-gray-500 dark:text-gray-400">
+        Below are my freelance and professional projects. Some have been anonymized or recreated to
+        respect client confidentiality, but the work shown reflects my real contributions without
+        revealing any sensitive details
+      </p>
+    </div>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <PortfolioCards v-for="(card, cardIndex) in portfolioData" :key="cardIndex" :item="card" />
     </div>
@@ -38,6 +53,8 @@ import { usePortfolioStore } from '@/stores/portfolioStore';
 import PortfolioCards from '@/components/Portfolio/PortfolioCards.vue';
 import PortfolioDetail from '@/components/Portfolio/PortfolioDetail.vue';
 import { useProfileImage } from '@/composables/useProfileImage.ts';
+import { InformationCircleIcon } from '@heroicons/vue/24/outline';
+
 const { profileImage } = useProfileImage();
 // Fetch portfolio data on mounted
 const portfolioStore = usePortfolioStore();
