@@ -69,25 +69,25 @@
   </Disclosure>
 </template>
 
-<script setup>
-import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue'
-import { Bars3Icon, MoonIcon, XMarkIcon, SunIcon } from '@heroicons/vue/24/outline'
-import { useThemeStore } from '@/stores/themeStore'
-import { RouterLink } from 'vue-router'
+<script lang="ts" setup>
+import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/vue';
+import { Bars3Icon, MoonIcon, XMarkIcon, SunIcon } from '@heroicons/vue/24/outline';
+import { useThemeStore } from '@/stores/themeStore';
+import { RouterLink } from 'vue-router';
 
 const navigation = [
   { name: 'Portfolio', href: '/', current: true },
   { name: 'About', href: '/about', current: false },
-]
+];
 
 // Use themeStore to toggle theme
-const themeStore = useThemeStore()
+const themeStore = useThemeStore();
 const toggleTheme = () => {
-  themeStore.toggleTheme()
+  themeStore.toggleTheme();
   if (!themeStore.isLight) {
-    document.body.classList.add('dark')
+    document.body.classList.add('dark');
   } else {
-    document.body.classList.remove('dark')
+    document.body.classList.remove('dark');
   }
-}
+};
 </script>

@@ -32,18 +32,18 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue'
-import { storeToRefs } from 'pinia'
-import { usePortfolioStore } from '@/stores/portfolioStore'
-import PortfolioCards from '@/components/Portfolio/PortfolioCards.vue'
-import PortfolioDetail from '@/components/Portfolio/PortfolioDetail.vue'
-import { useProfileImage } from '@/composables/useProfileImage.ts'
-const { profileImage } = useProfileImage()
+import { onMounted } from 'vue';
+import { storeToRefs } from 'pinia';
+import { usePortfolioStore } from '@/stores/portfolioStore';
+import PortfolioCards from '@/components/Portfolio/PortfolioCards.vue';
+import PortfolioDetail from '@/components/Portfolio/PortfolioDetail.vue';
+import { useProfileImage } from '@/composables/useProfileImage.ts';
+const { profileImage } = useProfileImage();
 // Fetch portfolio data on mounted
-const portfolioStore = usePortfolioStore()
-const { portfolioData } = storeToRefs(portfolioStore)
+const portfolioStore = usePortfolioStore();
+const { portfolioData } = storeToRefs(portfolioStore);
 
 onMounted(async () => {
-  await portfolioStore.fetchPortfolioData()
-})
+  await portfolioStore.fetchPortfolioData();
+});
 </script>

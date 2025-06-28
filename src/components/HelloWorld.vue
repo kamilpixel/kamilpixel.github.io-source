@@ -857,12 +857,12 @@ import {
   MenuButton,
   MenuItem,
   MenuItems,
-} from '@headlessui/vue'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline'
-import logo from '@/assets/logo.png'
+} from '@headlessui/vue';
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/vue/24/outline';
+import logo from '@/assets/logo.png';
 
 const navigation = [
   { name: 'Portfolio', href: '#', current: true },
   { name: 'About me', href: '#', current: false },
-]
+];
 </script>

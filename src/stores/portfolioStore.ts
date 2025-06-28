@@ -1,19 +1,19 @@
-import { defineStore } from 'pinia'
-import axios from 'axios'
-import type { PortfolioItem } from '@/types/portfolio'
+import { defineStore } from 'pinia';
+import axios from 'axios';
+import type { PortfolioItem } from '@/types/portfolio';
 
 export const usePortfolioStore = defineStore('portfolio', {
-  state: () => ({ 
+  state: () => ({
     isOpenModal: false,
     portfolioData: [] as PortfolioItem[],
     selectedPortfolioItem: null as PortfolioItem | null,
   }),
   actions: {
     toggleModal() {
-      this.isOpenModal = !this.isOpenModal
+      this.isOpenModal = !this.isOpenModal;
     },
     closeModal() {
-      this.isOpenModal = false
+      this.isOpenModal = false;
     },
     async fetchPortfolioData() {
       try {
@@ -24,4 +24,4 @@ export const usePortfolioStore = defineStore('portfolio', {
       }
     },
   },
-})
+});

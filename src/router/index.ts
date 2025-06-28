@@ -1,6 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
-const PortfolioView = () => import('@/views/PortfolioView.vue')
-const AboutView = () => import('@/views/AboutView.vue')
+import { createRouter, createWebHistory } from 'vue-router';
+const PortfolioView = () => import('@/views/PortfolioView.vue');
+const AboutView = () => import('@/views/AboutView.vue');
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -16,6 +16,6 @@ const router = createRouter({
       component: AboutView,
     },
   ],
-})
+});
 
-export default router
+export default router;

@@ -1,12 +1,12 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 
 export const useThemeStore = defineStore('theme', {
-  state: () => ({ 
+  state: () => ({
     isLight: true,
   }),
   actions: {
     toggleTheme() {
-      this.isLight = !this.isLight
+      this.isLight = !this.isLight;
     },
   },
-})
+});
