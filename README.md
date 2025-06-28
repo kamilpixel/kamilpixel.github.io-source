@@ -13,9 +13,7 @@ This project is created by **Kamil** to showcase professional experience, freela
 
 ## 🖼️ Screenshot
 
-![Portfolio Screenshot](https://via.placeholder.com/1200x700.png?text=Website+Screenshot+Placeholder)
-
-> Replace the above placeholder URL with a real screenshot once available.
+![Portfolio Screenshot](https://kamilpixel.github.io/assets/github-readme.jpg)
 
 ---
 
@@ -53,7 +51,7 @@ npm install
 npm run dev
 
 # Run unit tests
-npm run test:unit
+npm run test
 
 # Lint and fix code
 npm run lint
@@ -66,3 +64,4 @@ npm run type-check
 
 # Build for production
 npm run build
+```
