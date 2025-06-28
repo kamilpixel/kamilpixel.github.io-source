@@ -132,15 +132,13 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
-import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue'
-import { XMarkIcon } from '@heroicons/vue/24/outline'
-import { Square3Stack3DIcon, UserGroupIcon, UserIcon } from '@heroicons/vue/20/solid'
-import { usePortfolioStore } from '@/stores/portfolioStore'
-import { useThemeStore } from '@/stores/themeStore'
+import { computed } from 'vue';
+import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessui/vue';
+import { XMarkIcon } from '@heroicons/vue/24/outline';
+import { Square3Stack3DIcon, UserGroupIcon, UserIcon } from '@heroicons/vue/20/solid';
+import { usePortfolioStore } from '@/stores/portfolioStore';
 
-const themeStore = useThemeStore()
-const portfolioStore = usePortfolioStore()
+const portfolioStore = usePortfolioStore();
 
 const features = computed(() => [
   {
@@ -158,5 +156,5 @@ const features = computed(() => [
     description: portfolioStore.selectedPortfolioItem?.project_role,
     icon: UserIcon,
   },
-])
+]);
 </script>

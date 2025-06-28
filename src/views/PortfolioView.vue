@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { usePortfolioStore } from '@/stores/portfolioStore'
 import PortfolioCards from '@/components/Portfolio/PortfolioCards.vue'
