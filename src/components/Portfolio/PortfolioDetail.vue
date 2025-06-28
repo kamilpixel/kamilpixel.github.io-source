@@ -51,43 +51,51 @@
                       <!-- Text content -->
                       <div class="lg:pt-4 lg:pr-8 md:pb-4">
                         <div class="w-full">
-                          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 pb-4">
-                            <div>
+                          <div class="pb-4">
+                            <div class="space-y-2 md:space-y-6">
+                              <!-- Project type -->
                               <h2
                                 class="text-base/7 font-semibold text-indigo-600 dark:text-indigo-500"
                               >
                                 {{ portfolioStore.selectedPortfolioItem?.project_type }}
                               </h2>
+                              <!-- Project title -->
                               <p
-                                class="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-gray-200 sm:text-5xl"
+                                class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-gray-200 sm:text-5xl pb-4 md:pb-0"
                               >
                                 {{ portfolioStore.selectedPortfolioItem?.project_title }}
                               </p>
-                              <p class="mt-6 text-lg text-gray-600 dark:text-gray-400">
-                                {{ portfolioStore.selectedPortfolioItem?.project_description }}
-                              </p>
-                            </div>
-                            <dl
-                              class="max-w-xl space-y-8 md:space-y-4 text-base/7 text-gray-600 lg:max-w-none"
-                            >
-                              <div
-                                v-for="feature in features"
-                                :key="feature.name"
-                                class="relative pl-9"
-                              >
-                                <dt class="inline font-semibold text-gray-900 dark:text-gray-200">
-                                  <component
-                                    :is="feature.icon"
-                                    class="absolute top-1 left-1 size-5 text-indigo-600 dark:text-indigo-500"
-                                    aria-hidden="true"
-                                  />
-                                  {{ feature.name }}
-                                </dt>
-                                <dd class="pl-2 inline dark:text-gray-400">
-                                  {{ feature.description }}
-                                </dd>
+                              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4">
+                                <!-- Project description -->
+                                <p class="text-lg text-gray-600 dark:text-gray-400 pb-4 md:pb-0">
+                                  {{ portfolioStore.selectedPortfolioItem?.project_description }}
+                                </p>
+                                <!-- Project tech stack, team, role -->
+                                <dl
+                                  class="max-w-xl space-y-8 md:space-y-4 text-base/7 text-gray-600 lg:max-w-none pb-4 md:pb-0"
+                                >
+                                  <div
+                                    v-for="feature in features"
+                                    :key="feature.name"
+                                    class="relative pl-9"
+                                  >
+                                    <dt
+                                      class="inline font-semibold text-gray-900 dark:text-gray-200"
+                                    >
+                                      <component
+                                        :is="feature.icon"
+                                        class="absolute top-1 left-1 size-5 text-indigo-600 dark:text-indigo-500"
+                                        aria-hidden="true"
+                                      />
+                                      {{ feature.name }}
+                                    </dt>
+                                    <dd class="pl-2 inline dark:text-gray-400">
+                                      {{ feature.description }}
+                                    </dd>
+                                  </div>
+                                </dl>
                               </div>
-                            </dl>
+                            </div>
                           </div>
                         </div>
                       </div>
