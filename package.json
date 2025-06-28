@@ -11,7 +11,14 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint --ext .ts,.js,.vue src --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.23",

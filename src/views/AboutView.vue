@@ -64,4 +64,5 @@
 <script lang="ts" setup>
 import { useProfileImage } from '@/composables/useProfileImage.ts';
 const { profileImage } = useProfileImage();
+const a = 'testing';
 </script>
