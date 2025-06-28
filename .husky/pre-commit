@@ -1,4 +1,9 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+# Ensure the script is executable
+echo "Running pre-commit hook..."
 npm test
+npx lint-staged
+
+echo "Pre-commit hook completed successfully."
