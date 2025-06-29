@@ -1,11 +1,11 @@
-import { describe, it, expect, vi } from 'vitest'; // ✅ Import vi!
+import { describe, test, expect, vi } from 'vitest';
 import { createTestingPinia } from '@pinia/testing';
 import { mount } from '@vue/test-utils';
 import PortfolioCards from './PortfolioCards.vue';
 import type { PortfolioItem } from '@/types/portfolio';
 
 describe('PortfolioCards', () => {
-  it('renders properly', () => {
+  test('renders properly', () => {
     const wrapper = mount(PortfolioCards, {
       global: {
         plugins: [

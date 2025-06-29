@@ -37,6 +37,7 @@
         >
           <button
             @click="toggleTheme"
+            data-test-id="toggleThemeButton"
             type="button"
             class="cursor-pointer relative rounded-full bg-gray-900 p-1 text-gray-400 hover:text-white focus:ring-2 focus:gray-500 focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
           >
