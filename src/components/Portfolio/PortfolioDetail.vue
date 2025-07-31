@@ -67,9 +67,10 @@
                               </p>
                               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4">
                                 <!-- Project description -->
-                                <p class="text-lg text-gray-600 dark:text-gray-400 pb-4 md:pb-0">
-                                  {{ portfolioStore.selectedPortfolioItem?.project_description }}
-                                </p>
+                                <p
+                                  class="text-lg text-gray-600 dark:text-gray-400 pb-4 md:pb-0"
+                                  v-html="safeDescriptionHtml"
+                                />
                                 <!-- Project tech stack, team, role -->
                                 <dl
                                   class="max-w-xl space-y-8 md:space-y-4 text-base/7 text-gray-600 lg:max-w-none pb-4 md:pb-0"
@@ -144,6 +145,7 @@ import { Dialog, DialogPanel, TransitionChild, TransitionRoot } from '@headlessu
 import { XMarkIcon } from '@heroicons/vue/24/outline';
 import { Square3Stack3DIcon, UserGroupIcon, UserIcon } from '@heroicons/vue/20/solid';
 import { usePortfolioStore } from '@/stores/portfolioStore';
+import { useSanitizedHtml } from '@/composables/useSanitizedHtml';
 
 const portfolioStore = usePortfolioStore();
 
@@ -164,4 +166,10 @@ const features = computed(() => [
     icon: UserIcon,
   },
 ]);
+
+const rawDescription = computed(
+  () => portfolioStore.selectedPortfolioItem?.project_description ?? '',
+);
+
+const { sanitizedHtml: safeDescriptionHtml } = useSanitizedHtml(rawDescription);
 </script>

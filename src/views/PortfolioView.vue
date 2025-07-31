@@ -17,10 +17,11 @@
 
     <h1 class="text-3xl font-bold text-slate-700 dark:text-gray-200 pb-2">Hi, I'm Kamil</h1>
     <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
-      I'm a frontend developer with 10+ years of experience, specializing in Vue.js, Nuxt.js, and
-      building responsive, user-friendly websites. With a UI/UX design background, I focus on clean,
-      intuitive interfaces using tools like Tailwind, Vite, and Pinia. I've also worked with AWS,
-      Azure, React, and AngularJS, and enjoy writing clean code and collaborating with teams
+      I'm a frontend developer with extensive hands-on experience specializing in Vue.js, Nuxt.js,
+      and building responsive, user-friendly websites. With a background in UI/UX design, I focus on
+      crafting clean, intuitive interfaces using tools like Tailwind, Vite, and Pinia. I've also
+      worked with AWS, Azure, React, and AngularJS, and take pride in writing clean code and
+      collaborating effectively within agile teams.
     </p>
 
     <div class="p-5 bg-gray-100 dark:bg-gray-800 mb-8 text-wrap">

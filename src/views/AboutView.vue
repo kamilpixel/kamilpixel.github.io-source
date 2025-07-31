@@ -23,11 +23,12 @@
         class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-lg text-gray-500 dark:text-gray-400 pt-4"
       >
         <p class="indent-8 pb-4 text-wrap">
-          Hi, I'm Kamil a Frontend Developer based in Kuala Lumpur, Malaysia, with over 10 years of
-          experience building clean, responsive, and user-friendly web applications. I specialize in
-          Vue.js, Nuxt.js (SSR), and modern frontend ecosystems. From creating dynamic interfaces
-          with Tailwind CSS and Bootstrap, to managing state with Pinia and Vuex, I've helped build
-          scalable products in agile environments across both startups and enterprise teams.
+          Hi, I'm Kamil, a Frontend Developer based in Kuala Lumpur, Malaysia, with a strong track
+          record of building clean, responsive, and user-friendly web applications. I specialize in
+          Vue.js, Nuxt.js with server-side rendering, and modern frontend ecosystems. From crafting
+          dynamic interfaces with Tailwind CSS and Bootstrap to managing state with Pinia and Vuex,
+          I have contributed to scalable products in agile environments across both startups and
+          enterprise teams.
         </p>
         <p class="indent-8 pb-4 text-wrap">
           I also have hands-on experience with Vite, TypeScript, and frontend testing tools like
@@ -44,7 +45,7 @@
           team practices. Let's connect on
           <a
             class="underline underline-offset-4 decoration-2 decoration-indigo-500 text-indigo-400 hover:text-indigo-500 dark:text-indigo-500 dark:hover:text-indigo-600 font-bold"
-            href="https://linkedin.com/in/kamilkahar87"
+            href="https://linkedin.com/in/kamilpixel"
             target="_blank"
             >LinkedIn</a
           >

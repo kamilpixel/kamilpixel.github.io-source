@@ -13,7 +13,8 @@
     "type-check": "vue-tsc --build",
     "lint": "eslint --ext .ts,.js,.vue src --fix",
     "format": "prettier --write src/",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "deploy": "vite build && gh-pages -d dist -b gh-pages -r https://github.com/kamilpixel/kamilpixel.github.io.git"
   },
   "lint-staged": {
     "*.{js,ts,vue}": [
