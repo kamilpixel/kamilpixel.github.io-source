@@ -11,7 +11,7 @@
           <div class="flex flex-col">
             <strong class="text-3xl font-medium text-gray-900 dark:text-gray-200">Kamil</strong
             ><span class="text-xl font-medium text-gray-500 dark:text-gray-400"
-              >Senior Frontend Developer</span
+              >Frontend Developer | Vue.js & Modern Web</span
             >
           </div>
         </div>
