@@ -1,5 +1,16 @@
 [
   {
+    "project_title": "Coffee History",
+    "project_type": "Frontend Development",
+    "project_tech_stack": "GSAP, Iconify Icons, Vanilla JavaScript",
+    "project_team": "Solo",
+    "project_role": "Frontend Developer",
+    "project_description": "Live Demo: <a href=\"https://coffee-history.netlify.app\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-indigo-600\">https://coffee-history.netlify.app</a> <br/> An interactive scrolling timeline that takes you through the fascinating journey of coffee from its origins in Ethiopia to modern specialty cafe culture.",
+    "project_thumbnail": "assets/portfolio/coffeehistory/thumbnail.png",
+    "project_screenshot": "assets/portfolio/coffeehistory/screenshot.png",
+    "project_visible": true
+  },
+  {
     "project_title": "Movie Listing App",
     "project_type": "Frontend Development",
     "project_tech_stack": "Vue 3, TypeScript, Vuetify 3, Pinia (State Management), Vue Router, Vite",
