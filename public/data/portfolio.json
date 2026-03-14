@@ -1,5 +1,16 @@
 [
   {
+    "project_title": "Movie Listing App",
+    "project_type": "Frontend Development",
+    "project_tech_stack": "Vue 3, TypeScript, Vuetify 3, Pinia (State Management), Vue Router, Vite",
+    "project_team": "Solo",
+    "project_role": "Frontend Developer",
+    "project_description": "Live Demo: <a href=\"https://movie-listing-app-kamil.netlify.app/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-indigo-600\">https://movie-listing-app-kamil.netlify.app/</a> <br/> A Vue 3 application for browsing movie, built with modern web technologies",
+    "project_thumbnail": "assets/portfolio/movielist/thumbnail.png",
+    "project_screenshot": "assets/portfolio/movielist/screenshot.png",
+    "project_visible": true
+  },
+  {
     "project_title": "FuelFlux - Smart Pricing Dashboard",
     "project_type": "Frontend Development",
     "project_tech_stack": "ReactJS v18, React-router, Axios, Tailwind CSS, Chart.js, Vite",
