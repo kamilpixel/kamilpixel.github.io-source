@@ -1,5 +1,16 @@
 [
   {
+    "project_title": "QRLaju",
+    "project_type": "Website Design & Development",
+    "project_tech_stack": "NuxtJS, Vue 3, Pinia, Vuetify, Vite",
+    "project_team": "Solo",
+    "project_role": "Web Developer",
+    "project_description": "Live Demo: <a href=\"https://qrlaju.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-indigo-600\">https://qrlaju.com</a> <br/> A fast and simple QR code generator. This tool focuses on a clean design and a straightforward user experience, making it easy to create minimalist QR codes instantly",
+    "project_thumbnail": "assets/portfolio/qrlaju/thumbnail.png",
+    "project_screenshot": "assets/portfolio/qrlaju/screenshot.png",
+    "project_visible": true
+  },
+  {
     "project_title": "Coffee History",
     "project_type": "Frontend Development",
     "project_tech_stack": "GSAP, Iconify Icons, Vanilla JavaScript",
