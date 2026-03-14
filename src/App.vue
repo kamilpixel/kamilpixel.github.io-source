@@ -5,7 +5,7 @@
       <RouterView />
     </main>
     <TheFooter />
-    <p class="hidden">v2026-03-14-1023</p>
+    <p class="hidden">v2026-03-14-1248</p>
   </div>
 </template>
 
