@@ -35,7 +35,14 @@
           Vitest. While Vue is my main focus, I'm also familiar with React, Next.js, and even
           AngularJS from earlier projects. On the UI/UX side, I care deeply about responsive design,
           design systems, and pixel-perfect execution. I enjoy translating Figma mockups into real
-          code and collaborating closely with designers.
+          code and collaborating closely with designers. Visit my
+          <a
+            class="underline underline-offset-4 decoration-2 decoration-indigo-500 text-indigo-400 hover:text-indigo-500 dark:text-indigo-500 dark:hover:text-indigo-600 font-bold"
+            href="https://kamilpixel-design.netlify.app"
+            target="_blank"
+            >UI/UX portfolio</a
+          >
+          to see my design works.
         </p>
         <p class="indent-8 pb-4 text-wrap">
           My workflow is powered by tools like Git, Postman, Storybook, and platforms like GitHub,
