@@ -11,6 +11,17 @@
     "project_visible": true
   },
   {
+    "project_title": "Radar Chart",
+    "project_type": "Frontend Development",
+    "project_tech_stack": "ChartJS, Vite, HTML, CSS, Javascript",
+    "project_team": "Solo",
+    "project_role": "Web Developer",
+    "project_description": "Live Demo: <a href=\"https://radar-chart-kamil.netlify.app/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"text-indigo-600\">https://radar-chart-kamil.netlify.app/</a> <br/> A simple radar chart visualization test built with Chart.js and Vite. This test creates a radar chart visualization using Chart.js library.",
+    "project_thumbnail": "assets/portfolio/radarchart/thumbnail.png",
+    "project_screenshot": "assets/portfolio/radarchart/screenshot.png",
+    "project_visible": true
+  },
+  {
     "project_title": "Coffee History",
     "project_type": "Frontend Development",
     "project_tech_stack": "GSAP, Iconify Icons, Vanilla JavaScript",

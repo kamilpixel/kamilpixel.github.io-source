@@ -47,6 +47,7 @@
     </div>
   </div>
   <PortfolioDetail />
+  <TheCallToAction />
 </template>
 
 <script lang="ts" setup>
@@ -55,6 +56,7 @@ import { storeToRefs } from 'pinia';
 import { usePortfolioStore } from '@/stores/portfolioStore';
 import PortfolioCards from '@/components/Portfolio/PortfolioCards.vue';
 import PortfolioDetail from '@/components/Portfolio/PortfolioDetail.vue';
+import TheCallToAction from '@/components/TheCallToAction.vue';
 import { useProfileImage } from '@/composables/useProfileImage.ts';
 import { InformationCircleIcon } from '@heroicons/vue/24/outline';
 
