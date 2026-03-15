@@ -22,6 +22,7 @@
 .cta-wrap {
   padding: 80px 24px;
   text-align: center;
+  border-top: 1px solid #e5e5e5;
 }
 .cta-eyebrow {
   font-size: 11px;
