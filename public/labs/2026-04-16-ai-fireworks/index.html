@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Fireworks</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        background: #000;
+        overflow: hidden;
+      }
+      canvas {
+        display: block;
+        touch-action: none;
+        cursor: crosshair;
+      }
+      #hint {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: rgba(255, 255, 255, 0.32);
+        font:
+          400 clamp(10px, 2.2vw, 13px) / 1 'Georgia',
+          serif;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        pointer-events: none;
+        white-space: nowrap;
+        animation: fadeHint 5s ease-out 1s forwards;
+      }
+      @keyframes fadeHint {
+        0% {
+          opacity: 1;
+        }
+        60% {
+          opacity: 0.3;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="c"></canvas>
+    <div id="hint">Touch &amp; drag · tap to launch</div>
+    <script>
+      'use strict';
+      // ─────────────────────────────────────────────────────────────────────────────
+      // CONFIG
+      // ─────────────────────────────────────────────────────────────────────────────
+      const CFG = {
+        MAX_PARTICLES: 1800, // hard cap – pool size
+        MAX_TRAILS: 400,
+        MAX_SHELLS: 12,
+        FADE_ALPHA: 0.13, // trail fade per frame (lower = longer glow)
+        AUTO_MIN_MS: 900, // auto-launch interval range
+        AUTO_MAX_MS: 2200,
+        BURST_BASE: 90, // particles per burst (scaled by screen)
+        TOUCH_BURST_DIST: 45, // px moved before next burst while dragging
+        TRAIL_PER_MOVE: 3, // trail dots per move event
+      };
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // CANVAS SETUP
+      // ─────────────────────────────────────────────────────────────────────────────
+      const canvas = document.getElementById('c');
+      const ctx = canvas.getContext('2d', { alpha: false });
+
+      // Offscreen for persistent glow
+      let glow, gctx;
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const W = window.innerWidth,
+          H = window.innerHeight;
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        ctx.scale(dpr, dpr);
+        glow = document.createElement('canvas');
+        glow.width = W;
+        glow.height = H;
+        gctx = glow.getContext('2d', { alpha: false });
+        gctx.fillStyle = '#000';
+        gctx.fillRect(0, 0, W, H);
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      function W() {
+        return window.innerWidth;
+      }
+      function H() {
+        return window.innerHeight;
+      }
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // MATH HELPERS
+      // ─────────────────────────────────────────────────────────────────────────────
+      const TAU = Math.PI * 2;
+      const rnd = (a, b) => a + Math.random() * (b - a);
+      const rndI = (a, b) => (a + Math.random() * (b - a)) | 0;
+      const clamp = (v, lo, hi) => (v < lo ? lo : v > hi ? hi : v);
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // COLOUR HELPERS
+      // ─────────────────────────────────────────────────────────────────────────────
+      const PAL = [
+        '#ff5040',
+        '#ffa01e',
+        '#ffe632',
+        '#50f050',
+        '#32dcff',
+        '#6478ff',
+        '#dc50ff',
+        '#ff50b4',
+        '#ffffff',
+        '#78ffc8',
+        '#ff9664',
+        '#c8ff50',
+      ];
+      let hueRot = 0;
+      function nextHue() {
+        hueRot = (hueRot + 2) % 360;
+        const h = hueRot / 360,
+          s = 1,
+          l = 0.6;
+        // HSL→hex inline
+        const a = s * Math.min(l, 1 - l);
+        const f = (n) => {
+          const k = (n + h * 12) % 12;
+          return l - a * Math.max(-1, Math.min(k - 3, 9 - k, 1));
+        };
+        return `rgb(${(f(0) * 255) | 0},${(f(8) * 255) | 0},${(f(4) * 255) | 0})`;
+      }
+      function palCol() {
+        return PAL[rndI(0, PAL.length)];
+      }
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // OBJECT POOL  (avoids GC pressure)
+      // ─────────────────────────────────────────────────────────────────────────────
+      class Pool {
+        constructor(Cls, max) {
+          this._free = [];
+          this._live = [];
+          for (let i = 0; i < max; i++) this._free.push(new Cls());
+        }
+        get(initFn) {
+          const obj = this._free.length ? this._free.pop() : null;
+          if (!obj) return null; // at cap
+          initFn(obj);
+          this._live.push(obj);
+          return obj;
+        }
+        update() {
+          const live = this._live,
+            free = this._free;
+          let i = live.length;
+          while (i--) {
+            live[i].update();
+            if (live[i].dead) {
+              free.push(live[i]);
+              live.splice(i, 1);
+            }
+          }
+        }
+        draw(ctx) {
+          const live = this._live;
+          for (let i = 0; i < live.length; i++) live[i].draw(ctx);
+        }
+        get count() {
+          return this._live.length;
+        }
+      }
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // PARTICLE
+      // ─────────────────────────────────────────────────────────────────────────────
+      class Particle {
+        constructor() {
+          this.dead = true;
+        }
+        init(x, y, col, angle, speed, isSpark) {
+          this.x = x;
+          this.y = y;
+          this.col = col;
+          this.vx = Math.cos(angle) * speed;
+          this.vy = Math.sin(angle) * speed;
+          this.spark = isSpark;
+          this.gravity = isSpark ? rnd(0.02, 0.07) : rnd(0.04, 0.11);
+          this.drag = isSpark ? rnd(0.95, 0.98) : rnd(0.93, 0.97);
+          this.size = isSpark ? rnd(1.2, 3) : rnd(1.8, 4.5);
+          this.life = isSpark ? rnd(35, 70) : rnd(55, 120);
+          this.maxLife = this.life;
+          // compact tail: 2 floats per entry
+          this.tailLen = isSpark ? 6 : 4;
+          this.tailX = new Float32Array(this.tailLen);
+          this.tailY = new Float32Array(this.tailLen);
+          this.tailPtr = 0;
+          this.tailFill = 0;
+          this.twinkle = rnd(0, TAU);
+          this.dead = false;
+        }
+        update() {
+          // push tail (ring buffer)
+          this.tailX[this.tailPtr] = this.x;
+          this.tailY[this.tailPtr] = this.y;
+          this.tailPtr = (this.tailPtr + 1) % this.tailLen;
+          if (this.tailFill < this.tailLen) this.tailFill++;
+
+          this.vx *= this.drag;
+          this.vy *= this.drag;
+          this.vy += this.gravity;
+          this.x += this.vx;
+          this.y += this.vy;
+          this.life--;
+          this.twinkle += 0.28;
+          if (this.life <= 0) this.dead = true;
+        }
+        draw(ctx) {
+          const ratio = this.life / this.maxLife;
+          const alpha = ratio < 0.3 ? ratio / 0.3 : 1;
+          const flicker = this.spark ? Math.abs(Math.sin(this.twinkle)) : 1;
+          const a = alpha * flicker;
+          const sz = this.size;
+
+          // tail
+          const steps = this.tailFill;
+          for (let i = 0; i < steps; i++) {
+            const idx = (this.tailPtr - 1 - i + this.tailLen) % this.tailLen;
+            const ta = a * (1 - i / steps) * 0.55;
+            const ts = sz * (1 - i / steps);
+            ctx.globalAlpha = ta;
+            ctx.fillStyle = this.col;
+            ctx.beginPath();
+            ctx.arc(this.tailX[idx], this.tailY[idx], ts, 0, TAU);
+            ctx.fill();
+          }
+
+          // glow
+          ctx.globalAlpha = a * 0.18;
+          ctx.fillStyle = this.col;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, sz * 3, 0, TAU);
+          ctx.fill();
+
+          // core
+          ctx.globalAlpha = a;
+          ctx.fillStyle = this.col;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, sz * flicker, 0, TAU);
+          ctx.fill();
+
+          // bright centre
+          ctx.globalAlpha = a * 0.55;
+          ctx.fillStyle = '#fff';
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, sz * 0.4 * flicker, 0, TAU);
+          ctx.fill();
+        }
+      }
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // TRAIL DOT
+      // ─────────────────────────────────────────────────────────────────────────────
+      class Trail {
+        constructor() {
+          this.dead = true;
+        }
+        init(x, y, col) {
+          this.x = x;
+          this.y = y;
+          this.col = col;
+          this.size = rnd(3, 9);
+          this.life = rnd(30, 70);
+          this.maxLife = this.life;
+          this.dead = false;
+        }
+        update() {
+          this.life--;
+          if (this.life <= 0) this.dead = true;
+        }
+        draw(ctx) {
+          const a = this.life / this.maxLife;
+          ctx.globalAlpha = a * 0.85;
+          ctx.fillStyle = this.col;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size * a, 0, TAU);
+          ctx.fill();
+          ctx.globalAlpha = a * 0.3;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size * 1.8 * a, 0, TAU);
+          ctx.fill();
+        }
+      }
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // SHELL (rocket)
+      // ─────────────────────────────────────────────────────────────────────────────
+      class Shell {
+        constructor() {
+          this.dead = true;
+        }
+        init(x, targetY) {
+          this.x = x;
+          this.y = H() + 10;
+          this.targetY = targetY;
+          this.col = palCol();
+          this.vy = -rnd(11, 20);
+          this.vx = rnd(-1.2, 1.2);
+          this.tailX = new Float32Array(12);
+          this.tailY = new Float32Array(12);
+          this.tailPtr = 0;
+          this.tailFill = 0;
+          this.dead = false;
+        }
+        update() {
+          this.tailX[this.tailPtr] = this.x;
+          this.tailY[this.tailPtr] = this.y;
+          this.tailPtr = (this.tailPtr + 1) % 12;
+          if (this.tailFill < 12) this.tailFill++;
+          this.vy += 0.22;
+          this.x += this.vx;
+          this.y += this.vy;
+          if (this.vy >= 0 || this.y <= this.targetY) {
+            this.dead = true;
+            burst(this.x, this.y, this.col);
+          }
+        }
+        draw(ctx) {
+          const steps = this.tailFill;
+          for (let i = 0; i < steps; i++) {
+            const idx = (this.tailPtr - 1 - i + 12) % 12;
+            const ta = (1 - i / steps) * 0.8;
+            const ts = (1 - i / steps) * 3 + 0.5;
+            ctx.globalAlpha = ta;
+            ctx.fillStyle = this.col;
+            ctx.beginPath();
+            ctx.arc(this.tailX[idx], this.tailY[idx], ts, 0, TAU);
+            ctx.fill();
+          }
+          ctx.globalAlpha = 0.95;
+          ctx.fillStyle = '#ffffd0';
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, 2.5, 0, TAU);
+          ctx.fill();
+        }
+      }
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // POOLS
+      // ─────────────────────────────────────────────────────────────────────────────
+      const pPool = new Pool(Particle, CFG.MAX_PARTICLES);
+      const tPool = new Pool(Trail, CFG.MAX_TRAILS);
+      const sPool = new Pool(Shell, CFG.MAX_SHELLS);
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // BURST FACTORY
+      // ─────────────────────────────────────────────────────────────────────────────
+      function burst(x, y, col) {
+        const screenScale = clamp((Math.min(W(), H()) - 300) / 900, 0, 1);
+        const base = (CFG.BURST_BASE + screenScale * 60) | 0;
+        const style = rndI(0, 5);
+
+        if (style === 0) {
+          // sphere
+          for (let i = 0; i < base; i++)
+            pPool.get((p) => p.init(x, y, col, rnd(0, TAU), rnd(2, 8.5), false));
+        } else if (style === 1) {
+          // ring
+          for (let i = 0; i < base; i++)
+            pPool.get((p) => p.init(x, y, col, (i / base) * TAU, rnd(5, 9), false));
+          const c2 = palCol();
+          for (let i = 0; (i < base * 0.35) | 0; i++)
+            pPool.get((p) => p.init(x, y, c2, rnd(0, TAU), rnd(1, 4), true));
+        } else if (style === 2) {
+          // star
+          const arms = rndI(5, 9);
+          for (let a = 0; a < arms; a++) {
+            const ba = (TAU / arms) * a;
+            const n = (base / arms) | 0;
+            for (let i = 0; i < n; i++)
+              pPool.get((p) => p.init(x, y, col, ba + rnd(-0.14, 0.14), rnd(4, 9.5), false));
+          }
+        } else if (style === 3) {
+          // double shell
+          for (let i = 0; (i < base * 0.6) | 0; i++)
+            pPool.get((p) => p.init(x, y, col, rnd(0, TAU), rnd(4, 9), false));
+          const c2 = palCol();
+          for (let i = 0; (i < base * 0.45) | 0; i++)
+            pPool.get((p) => p.init(x, y, c2, rnd(0, TAU), rnd(1, 5), true));
+        } else {
+          // willow
+          for (let i = 0; i < base; i++) {
+            pPool.get((p) => {
+              p.init(x, y, col, rnd(0, TAU), rnd(3, 7.5), false);
+              p.gravity *= 1.9;
+            });
+          }
+        }
+
+        // sparkle halo
+        const sc = palCol();
+        for (let i = 0; i < 18; i++)
+          pPool.get((p) => p.init(x, y, sc, rnd(0, TAU), rnd(1, 6), true));
+      }
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // AUTO-LAUNCH
+      // ─────────────────────────────────────────────────────────────────────────────
+      let nextAuto = 0;
+      function scheduleAuto(now) {
+        nextAuto = now + rnd(CFG.AUTO_MIN_MS, CFG.AUTO_MAX_MS);
+      }
+
+      function autoLaunch(now) {
+        if (now < nextAuto) return;
+        scheduleAuto(now);
+        sPool.get((s) => s.init(rnd(W() * 0.1, W() * 0.9), rnd(H() * 0.1, H() * 0.52)));
+      }
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // INPUT
+      // ─────────────────────────────────────────────────────────────────────────────
+      let lastDragX = -999,
+        lastDragY = -999;
+
+      function launchAt(x, y) {
+        sPool.get((s) => s.init(x, y - rnd(8, 35)));
+      }
+
+      function addTrail(x, y) {
+        const col = nextHue();
+        for (let i = 0; i < CFG.TRAIL_PER_MOVE; i++)
+          tPool.get((t) => t.init(x + rnd(-5, 5), y + rnd(-5, 5), col));
+        // small sparks along trail
+        pPool.get((p) => p.init(x, y, col, rnd(0, TAU), rnd(0.8, 3.5), true));
+
+        if (Math.hypot(x - lastDragX, y - lastDragY) > CFG.TOUCH_BURST_DIST) {
+          burst(x, y, col);
+          lastDragX = x;
+          lastDragY = y;
+        }
+      }
+
+      // Pointer events (unified mouse + touch, no duplicate handling)
+      canvas.addEventListener(
+        'pointerdown',
+        (e) => {
+          e.preventDefault();
+          const x = e.offsetX,
+            y = e.offsetY;
+          launchAt(x, y);
+          lastDragX = x;
+          lastDragY = y;
+          canvas.setPointerCapture(e.pointerId);
+        },
+        { passive: false },
+      );
+
+      canvas.addEventListener(
+        'pointermove',
+        (e) => {
+          if (e.buttons === 0 && e.pointerType === 'mouse') return; // hover only
+          e.preventDefault();
+          // coalesced events = smoother trail with no extra cost
+          const evts = e.getCoalescedEvents ? e.getCoalescedEvents() : [e];
+          for (const ev of evts) addTrail(ev.offsetX, ev.offsetY);
+        },
+        { passive: false },
+      );
+
+      canvas.addEventListener(
+        'pointerup',
+        (e) => {
+          e.preventDefault();
+        },
+        { passive: false },
+      );
+      canvas.addEventListener(
+        'pointercancel',
+        (e) => {
+          e.preventDefault();
+        },
+        { passive: false },
+      );
+
+      // ─────────────────────────────────────────────────────────────────────────────
+      // RENDER LOOP  (RAF, no p5 overhead)
+      // ─────────────────────────────────────────────────────────────────────────────
+      let lastTime = 0;
+
+      function frame(now) {
+        requestAnimationFrame(frame);
+
+        // delta clamp prevents spiral-of-death on tab-switch
+        const dt = Math.min(now - lastTime, 50);
+        lastTime = now;
+
+        // ── glow canvas: fade to black ──────────────────────────────
+        gctx.fillStyle = `rgba(0,0,0,${CFG.FADE_ALPHA})`;
+        gctx.fillRect(0, 0, W(), H());
+
+        // ── update + draw everything onto glow canvas ───────────────
+        gctx.globalAlpha = 1;
+
+        autoLaunch(now);
+        tPool.update();
+        tPool.draw(gctx);
+        sPool.update();
+        sPool.draw(gctx);
+        pPool.update();
+        pPool.draw(gctx);
+
+        gctx.globalAlpha = 1;
+
+        // ── blit glow onto main canvas ──────────────────────────────
+        ctx.globalAlpha = 1;
+        ctx.drawImage(glow, 0, 0);
+      }
+
+      scheduleAuto(0);
+      requestAnimationFrame((t) => {
+        lastTime = t;
+        requestAnimationFrame(frame);
+      });
+    </script>
+  </body>
+</html>
